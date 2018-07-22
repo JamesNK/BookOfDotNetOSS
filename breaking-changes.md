@@ -20,23 +20,30 @@ Not all breaking changes are equally impactful.
 
 A source breaking change doesn't effect program execution but will cause compilation errors the next time the application is recompiled. Examples of source breaking changes include adding a new overload that can result in ambiguity in method calls that were unambiguous previously, or changing a parameter name that can break anyone calling that method using named parameters.
 
+```cs
+public class Task
+{
+	// Adding a type called Task will conflict with System.Threading.Task at compilation
+}
+```
+
 Because a source breaking change only effects compiling an application it is the least disruptive. A developer can fix broken source themselves quite easily.
 
 ### Behavior Breaking Change
 
 Behavior changes are the most common breaking change: almost any change in behavior could break someone. Even a bug fix can qualify if users relied on the previously broken behavior.
 
-**✓ CONSIDER** leaving new features that would change behavior for existing users off by default, and enabled by a setting.
+**✓ CONSIDER** leaving new features off by default if they effect existing users, and let developers opt-in to the feature with a setting.
 
 ### Binary Breaking Change
 
-Changing the public API of a library so that assemblies compiled against older versions are no longer able to call it is known as a binary breaking change. For example changing a method's signature by adding a new parameter will cause code that calls the method to throw a `MissingMethodException`.
+Changing the public API of a library so that assemblies compiled against older versions are no longer able to call it is known as a binary breaking change. For example changing a method's signature by adding a new parameter will cause already compiled assemblies that called it to throw a `MissingMethodException`.
 
-As well as breaking code that uses individual methods and types, a binary breaking change can break an entire assembly. Renaming an assembly in `AssemblyNameAttribute` will cause all compiled code that calls it to fail. Adding, removing or changing the strong naming key for an assembly will also break any existing compiled code. These changes will cause the infamous `FileLoadException: Could not load file or assembly 'Foo'` exception.
+As well as breaking code that uses individual methods and types, a binary breaking change can break an **entire assembly**. Renaming an assembly in `AssemblyNameAttribute` will cause all compiled code that calls it to fail. Adding, removing or changing the strong naming key for an assembly will also break any existing compiled code.
 
-**X DO NOT** change an assembly name
+**X DO NOT** change an assembly name.
 
-**X DO NOT** add, remove or change the strong naming key
+**X DO NOT** add, remove or change the strong naming key.
 
 **✓ CONSIDER** using abstract base classes instead of interfaces.
 
@@ -45,3 +52,19 @@ As well as breaking code that uses individual methods and types, a binary breaki
 **✓ CONSIDER** placing the `ObsoleteAttribute` on types and members that you intent to remove with instructions for fixing their code to no longer use the obsolete API.
 
   Code that calls types and methods with the `ObsoleteAttribute` will generate a build warning with the message supplied to the attribute. The warnings gives people who user the obsolete API surface time to migrate so that when the when the obsolete API is removed most are no longer be using it.
+
+```cs
+public class Document
+{
+	[Obsolete("LoadDocument(string) is obsolete. Use LoadDocument(Uri) instead.")]
+	public static Document LoadDocument(string uri)
+	{
+		return LoadDocument(new Uri(uri));
+	}
+
+	public static Document LoadDocument(Uri uri)
+	{
+		// Load the document
+	}
+}
+```
