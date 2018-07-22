@@ -10,7 +10,7 @@ The projects that cause the most disruption are low and middle-level libraries l
 
 High level libraries like a suite of UI controls can release breaking changes with much less disrupment. Because the high-level library is likely only directly referenced in the end user application, in the event of breaking changes the developer can choose to not update to the latest version, or can modify their application to work with the breaking change.
 
-**✓ DO** think about how your OSS project is used by the community when considering major breaking changes
+**✓ DO** think about how your OSS project is used by the community when considering major breaking changes.
 
 ## Types of Breaking Changes
 

@@ -6,12 +6,12 @@ The goal of this website is to bring together the collective wisdom and best pra
 
 ## Table of Contents
 
-* [Cross-platform Targeting](./cross-platform-targeting.md)
+* [Cross-platform Targeting](./cross-platform-targeting.md) **TODO**
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
 * [Versioning](./versioning.md)
   * [Breaking Changes](./breaking-changes.md)
-* [Signing](./signing.md)
+* [Signing](./signing.md) **TODO**
   * [Strong Naming](./strong-naming.md)
 
 ## Recommendations
@@ -34,7 +34,7 @@ And finally less strong, **avoid** recommendations are something this is not a g
 
 ## How Can I Help?
 
-The best ways to help are by contributing your knowledge to the documentation, or letting developers know the documentation exists when a question comes up.
+Please contribute your knowledge to the documentation. Also let other developers know the documentation exists when a question comes up.
 
 ## License
 
