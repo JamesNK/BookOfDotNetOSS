@@ -2,10 +2,11 @@
 
 The Book of .NET OSS is a living resource to help answer common technical questions from .NET open source project owners and maintaners.
 
-The goal of this website is to bring together the collective wisdom and best practices of open source project owners in one central place instead of being spread across GitHub, StackOverflow and Twitter discussions. We want the .NET community to produce high quality, stable .NET libraries for the benifit of all developers.
+The goal of this website is to bring together the collective wisdom and best practices of open source project owners in one central place instead of being spread across GitHub, StackOverflow and Twitter discussions. We want to help the .NET community to produce high quality, stable .NET libraries for all developers.
 
 ## Table of Contents
 
+* [Getting started](./getting-started.md) **TODO**
 * [Cross-platform targeting](./cross-platform-targeting.md) **TODO**
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
@@ -26,7 +27,7 @@ On the other hand **Consider** recommendations should generally be followed, but
 
 **Do not** indicates something you should almost never do:
 
-**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. Contoso.Api and Contoso.Api.StrongNamed.
+**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
 
 And finally less strong, **avoid** recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:
 
@@ -34,7 +35,8 @@ And finally less strong, **avoid** recommendations are something this is not a g
 
 ## How Can I Help?
 
-Please contribute your knowledge to the documentation. Also let other developers know the documentation exists when a question comes up.
+1. Please contribute your knowledge to the documentation.
+2. Let developers know the documentation exists when a question comes up.
 
 ## License
 
