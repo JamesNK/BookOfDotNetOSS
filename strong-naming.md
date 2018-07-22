@@ -25,13 +25,17 @@ When .NET developers complain about strong-naming what they are usually complain
 
 The benefits of strong naming are it provides a guarantee of identity (provided you choose to keep the private key secret), it allows the assembly to be stored in the Global Assembly Cache (GAC), it allows the assembly to be used by plug-in architectures that require strong naming, and it can be referenced by other strong named assemblies.
 
+## What should I do?
+
+Strong-naming an assembly ensures the most people can use it, and .NET Core removes the main problem with strong-naming.
+
 **✓ CONSIDER** strong-naming your project assemblies. Strong-naming allows assemblies to be:
 
   1. Referenced by other strong-named assemblies
   2. Stored and referenced in the Global Assembly Cache (GAC)
   3. Used by applications with plug-in architectures that require strong-named assemblies
 
-**✓ CONSIDER** checking in the key used to strong-name into your source control system. This makes it possible for other developers to recompile the library with the same identity.
+**✓ CONSIDER** checking in the key used to strong-name into your source control system. You loose the benefit of identity of strong-naming but making the key public lets developers recompile the library with the same identity.
 
 **✓ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
 

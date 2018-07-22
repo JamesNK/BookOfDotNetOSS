@@ -1,5 +1,11 @@
 ﻿# Versioning
 
+It is rare for an OSS project to have one release so you must think about how you will go about releasing new versions.
+
+## Breaking Changes
+
+Handling breaking changes between versions is covered in detail [here](./breaking-changes.md).
+
 ## Version Numbers
 
 A .NET library has many ways to specify a version. These are the most important:
@@ -8,17 +14,15 @@ A .NET library has many ways to specify a version. These are the most important:
 
 The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to `package.config`/`*.csproj` when the packaged is used. This version number is what users will commonly see and to refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavour.
 
-The NuGet package version is set with `PackageVersion` in a `*.csproj` file and has the form `Major.Minor.Patch[-Suffix]`. The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet.
+The NuGet package version is set with `PackageVersion` in a `*.csproj` file and has the form `Major.Minor.Patch[-Suffix]`. The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages [here](./nuget.md#prerelease).
 
-A NuGet package with a pre-release suffix in the version has special behavior. Read about pre-release NuGet packages [here](./nuget.md#prerelease).
+Because the NuGet package version is the most visible version to developers, it is a good idea to update it using Semantic Versioning (SemVer). SemVer indicates the significance of changes between release (e.g. `1.0` to `2.0` indicates that there are breaking changes) and helps developers make an informed decision.
 
-Note that nuget.org does not allow a package to have duplicate versions and does not allow a package to be deleted after it has been published. If you make a mistake you will need to unlist the incorrect package, increment the version number and publish a new version.
+**✓ CONSIDER** using [SemVer](https://semver.org/) to version your NuGet package.
 
-**✓ CONSIDER** using [SemVer](https://semver.org/) to version your NuGet package
+**✓ DO** use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.
 
-**✓ DO** use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see
-
-**✓ DO** include a suffix in the version for pre-release package versions. Users must opt-in to getting pre-release packages so understand that the package is not complete
+**✓ DO** include a suffix in the version for pre-release package versions. Users must opt-in to getting pre-release packages so understand that the package is not complete.
 
 More info - https://docs.microsoft.com/en-us/nuget/reference/package-versioning
 
@@ -50,10 +54,8 @@ The assembly file version is set with the `FileVersion` property if you are usin
 
 ### Assembly Informational Version
 
-The assembly informational version is used to record additional version information and has no effect on runtime behavior. If you are using SourceLink this version will automatically be included on build to contain the NuGet package version plus a source control version, e.g. the git commit hash the assembly was built from.
+The assembly informational version is used to record additional version information and has no effect on runtime behavior. If you are using SourceLink this version will automatically be included on build to contain the NuGet package version plus a source control version, e.g. the git commit hash the assembly was built from. Read more about SourceLink [here](./sourcelink.md).
 
 The assembly informational version is set with the `AssemblyInformationalVersion` property if you are using an SDK project, or `AssemblyInformationalVersionAttribute` in `AssemblyInfo.cs`, and it can have any form. Note that an innocuous build warning is raised if this version does not follow the format `Major.Minor.Build.Revision`. The warning can be safely ignored. Setting this version is optional.
 
-**X AVOID** setting the assembly informational version yourself. Allow SourceLink to automatically generate it for you with NuGet plus source control metadata.
-
-Read more about SourceLink here - SOURCELINK!
+**X AVOID** setting the assembly informational version yourself. Allow SourceLink to automatically generate the version containing NuGet and source control metadata.
