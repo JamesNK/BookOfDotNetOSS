@@ -40,4 +40,4 @@ And finally less strong, **avoid** recommendations are something this is not a g
 
 ## License
 
-https://creativecommons.org/licenses/by/4.0/
+The Book of .NET OSS is licensed under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/).
