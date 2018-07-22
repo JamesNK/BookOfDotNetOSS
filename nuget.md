@@ -63,3 +63,5 @@ Note that nuget.org does not allow a package to have duplicate versions and does
 **✓ DO** use a Microsoft account to login to NuGet.org
 
 **✓ DO** enable two factor authentication for accessing nuget.org
+
+![alt text](./images/nuget-2fa.png "NuGet Account Security")
