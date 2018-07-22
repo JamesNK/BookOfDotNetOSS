@@ -10,10 +10,10 @@ The goal of this website is to bring together the collective wisdom and best pra
 * [Cross-platform targeting](./cross-platform-targeting.md) **TODO**
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
-* [Versioning](./versioning.md)
-  * [Breaking changes](./breaking-changes.md)
 * [Signing](./signing.md) **TODO**
   * [Strong naming](./strong-naming.md)
+* [Versioning](./versioning.md)
+  * [Breaking changes](./breaking-changes.md)
 
 ## Recommendations
 
