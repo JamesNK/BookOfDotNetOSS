@@ -23,7 +23,7 @@ A source breaking change doesn't effect program execution but will cause compila
 ```cs
 public class Task
 {
-	// Adding a type called Task will conflict with System.Threading.Task at compilation
+    // Adding a type called Task will conflict with System.Threading.Task at compilation
 }
 ```
 
@@ -56,15 +56,15 @@ As well as breaking code that uses individual methods and types, a binary breaki
 ```cs
 public class Document
 {
-	[Obsolete("LoadDocument(string) is obsolete. Use LoadDocument(Uri) instead.")]
-	public static Document LoadDocument(string uri)
-	{
-		return LoadDocument(new Uri(uri));
-	}
+    [Obsolete("LoadDocument(string) is obsolete. Use LoadDocument(Uri) instead.")]
+    public static Document LoadDocument(string uri)
+    {
+        return LoadDocument(new Uri(uri));
+    }
 
-	public static Document LoadDocument(Uri uri)
-	{
-		// Load the document
-	}
+    public static Document LoadDocument(Uri uri)
+    {
+        // Load the document
+    }
 }
 ```
