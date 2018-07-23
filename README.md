@@ -1,8 +1,8 @@
 # The Book of .NET OSS
 
-The Book of .NET OSS is a living resource to help answer common technical questions from .NET open source project owners and maintaners.
+The Book of .NET OSS is a living resource to help answer common technical questions from .NET open source project owners and maintainers.
 
-The goal of this website is to bring together the collective wisdom and best practices of open source project owners in one central place instead of being spread across GitHub, StackOverflow and Twitter discussions. We want to help the .NET community to produce high quality, stable .NET libraries for all developers.
+The goal of this website is to bring together the wisdom and best practices spread across discussions in GitHub, StackOverflow and Twitter into one central place, and to distill it down to a set of common recommendations. We want to help the .NET community to produce high quality, stable .NET libraries for all developers.
 
 ## Table of Contents
 
@@ -31,7 +31,7 @@ On the other hand **Consider** recommendations should generally be followed, but
 
 And finally less strong, **avoid** recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:
 
-**X AVOID** grib
+**X AVOID** including a `netstandard1x` target. A .NET Standard 1.x target has a large package dependency graph. Prefer .NET Standard 2.0 and above.
 
 ## How Can I Help?
 

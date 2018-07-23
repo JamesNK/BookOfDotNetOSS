@@ -12,7 +12,7 @@ A .NET library has many ways to specify a version. These are the most important:
 
 ### NuGet Package Version
 
-The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to `package.config`/`*.csproj` when the packaged is used. This version number is what users will commonly see and to refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavour.
+The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to `package.config`/`*.csproj` when the packaged is used. This version number is what users will commonly see and to refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavior.
 
 The NuGet package version is set with `PackageVersion` in a `*.csproj` file and has the form `Major.Minor.Patch[-Suffix]`. The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages [here](./nuget.md#prerelease).
 
@@ -50,7 +50,7 @@ The assembly file version is used to display a file version in Windows and has n
 
 The assembly file version is set with the `FileVersion` property if you are using an SDK project, or `AssemblyFileVersionAttribute` in `AssemblyInfo.cs`, and has the form `Major.Minor.Build.Revision`. Setting this version is optional.
 
-**✓ CONSIDER** including the a continious integration build number as AssemblyFileVersion revision, e.g. you are building version 1.0.0 of your project, and the continuous integration build number is 99 so your AssemblyFileVersion is 1.0.0.99.
+**✓ CONSIDER** including the a continuous integration build number as AssemblyFileVersion revision, e.g. you are building version 1.0.0 of your project, and the continuous integration build number is 99 so your AssemblyFileVersion is 1.0.0.99.
 
 ### Assembly Informational Version
 

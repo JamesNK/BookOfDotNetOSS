@@ -1,6 +1,6 @@
 # Strong Naming
 
-Strong-naming assemlies is a controversial subject in the .NET community. There are definite benefits and definite costs to strong-naming, and there is constant debate over whether open source libraries should be strong-named.
+Strong-naming assemblies is a controversial subject in the .NET community. There are definite benefits and definite costs to strong-naming, and there is constant debate over whether open source libraries should be strong-named.
 
 ## What is strong naming
 
@@ -21,7 +21,7 @@ The downside to strong-naming is strict loading of assemblies by the old .NET Fr
 </configuration>
 ```
 
-When .NET developers complain about strong-naming what they are usually complaining about is stict assembly loading. Fortunatly .NET Core relaxes this restriction and removes the main downside of strong-naming.
+When .NET developers complain about strong-naming what they are usually complaining about is strict assembly loading. Fortunately .NET Core relaxes this restriction and removes the main downside of strong-naming.
 
 The benefits of strong naming are it provides a guarantee of identity (provided you choose to keep the private key secret), it allows the assembly to be stored in the Global Assembly Cache (GAC), it allows the assembly to be used by plug-in architectures that require strong naming, and it can be referenced by other strong named assemblies.
 
