@@ -10,9 +10,35 @@ A NuGet package (`*.nupkg`) is basically a zip file containing .NET assemblies a
 
 There are two main ways to create a NuGet package. The newer and recommended way is to create a package from a modern .NET Class Library (a modern .NET Class Library `csproj`/`vbproj` file starts with `<Project Sdk="Microsoft.NET.Sdk">`). Assemblies and targets are automatically added to the package and remaining metadata, e.g. package name and version number, is added to the MSBuild file. Compiling with the `pack` command outputs a `*.nupkg` file instead of assemblies.
 
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Contoso.Api</AssemblyName>
+    <PackageVersion>1.1.0</PackageVersion>
+    <Authors>John Doe</Authors>
+  </PropertyGroup>
+</Project>
+```
+
 The older of creating a NuGet package is with a nuspec file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
 
-**✓ CONSIDER** using a modern .NET Class Library to create a NuGet package is possible.
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+    <metadata>
+        <id>Contoso.Api</id>
+        <version>1.1.0</version>
+        <description></description>
+        <authors>John Doe</authors>
+    </metadata>
+    <files>
+        <file src="bin\Release\netstandard2.0\*.dll" target="netstandard2.0" />
+    </files>
+</package>
+```
+
+**✓ CONSIDER** using a modern .NET Class Library to create a NuGet package if possible.
 
 **✓ CONSIDER** setting up SourceLink to add source control metadata to your assemblies and NuGet package.
 
