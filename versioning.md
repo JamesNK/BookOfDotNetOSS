@@ -46,7 +46,7 @@ More info - https://docs.microsoft.com/en-us/dotnet/framework/app-domains/assemb
 
 The assembly file version is used to display a file version in Windows and has no effect on runtime behavior. It is visible in a file's Properties dialog in Windows Explorers.
 
-![alt text](./images/win-properties.png "Windows Explorer")
+![Windows Explorer](./images/win-properties.png "Windows Explorer")
 
 The assembly file version is set with the `FileVersion` property if you are using an SDK project, or `AssemblyFileVersionAttribute` in `AssemblyInfo.cs`, and has the form `Major.Minor.Build.Revision`. Setting this version is optional.
 
