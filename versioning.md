@@ -59,3 +59,7 @@ The assembly informational version is used to record additional version informat
 The assembly informational version is set with the `AssemblyInformationalVersion` property if you are using an SDK project, or `AssemblyInformationalVersionAttribute` in `AssemblyInfo.cs`, and it can have any form. Note that an innocuous build warning is raised if this version does not follow the format `Major.Minor.Build.Revision`. The warning can be safely ignored. Setting this version is optional.
 
 **X AVOID** setting the assembly informational version yourself. Allow SourceLink to automatically generate the version containing NuGet and source control metadata.
+
+---
+
+[Home](./README.md)

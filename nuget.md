@@ -93,3 +93,7 @@ Note that nuget.org does not allow a package to have duplicate versions and does
 **✓ DO** enable two factor authentication for accessing nuget.org
 
 ![alt text](./images/nuget-2fa.png "NuGet Account Security")
+
+---
+
+[Home](./README.md)
