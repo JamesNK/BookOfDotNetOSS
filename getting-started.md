@@ -18,6 +18,6 @@ Some first steps to creating and publishing a .NET OSS project:
 
 5. Iterate and [version](./versioning.md), minimizing [breaking changes](./breaking-changes.md).
 
-===
+---
 
 [Home](./README.md)
