@@ -6,8 +6,8 @@ The goal of this website is to bring together the wisdom and best practices spre
 
 ## Table of Contents
 
-* [Getting started](./getting-started.md) **TODO**
-* [Cross-platform targeting](./cross-platform-targeting.md) **TODO**
+* [Getting started](./getting-started.md)
+* [Cross-platform targeting](./cross-platform-targeting.md)
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
 * [Signing](./signing.md) **TODO**

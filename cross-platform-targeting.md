@@ -9,7 +9,7 @@ There are two general ways to add cross-platform support to a .NET library:
 
 You can also combine these two approaches. For example a `netstandard20` target could be the default implementation and you could provide a platform specific target with additional features. NuGet will automatically prefer the platform specific target when possible.
 
-**✓ CONSIDER** using .NET Standard to provide cross-platform support. .NET Standard is the fastest way to support all .NET platforms.
+**✓ DO** support multiple .NET platforms if possible.
 
 ## .NET Standard
 
