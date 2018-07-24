@@ -8,6 +8,7 @@ The goal of this website is to bring together the wisdom and best practices spre
 
 * [Getting started](./getting-started.md)
 * [Cross-platform targeting](./cross-platform-targeting.md)
+* [Dependencies](./dependencies.md)
 * [Strong naming](./strong-naming.md)
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)

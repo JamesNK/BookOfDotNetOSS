@@ -44,7 +44,7 @@ The older of creating a NuGet package is with a nuspec file and the `nuget.exe` 
 
 ### Package Dependences
 
-grib
+NuGet package dependencies are covered [here](./dependencies.md).
 
 ### Important NuGet Package Metadata
 
