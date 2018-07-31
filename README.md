@@ -8,7 +8,7 @@ The goal of this website is to bring together the wisdom and best practices spre
 
 * [Getting started](./getting-started.md)
 * [Cross-platform targeting](./cross-platform-targeting.md)
-* [Dependencies](./dependencies.md) **TODO**
+* [Dependencies](./dependencies.md)
 * [Strong naming](./strong-naming.md)
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
@@ -31,7 +31,7 @@ On the other hand **Consider** recommendations should generally be followed, but
 
 And finally less strong, **avoid** recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:
 
-**X AVOID** including a `netstandard1x` target. A .NET Standard 1.x target has a large package dependency graph. Prefer .NET Standard 2.0 and above.
+**X AVOID** having package references demanding an exact version.
 
 ## How Can I Help?
 
@@ -40,4 +40,4 @@ And finally less strong, **avoid** recommendations are something this is not a g
 
 ## License
 
-The Book of .NET OSS is licensed under the [Creative Commons Attribution 4.0 International Public License](https://creativecommons.org/licenses/by/4.0/).
+The Book of .NET OSS is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/).
