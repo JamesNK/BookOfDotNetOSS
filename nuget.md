@@ -42,11 +42,19 @@ The older of creating a NuGet package is with a nuspec file and the `nuget.exe` 
 
 **✓ CONSIDER** setting up SourceLink to add source control metadata to your assemblies and NuGet package.
 
+**More Information**
+
+* [Creating NuGet packages](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package)
+* [Migrate from packages.config to PackageReference
+](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)
+
 ### Package Dependences
 
 NuGet package dependencies are covered [here](./dependencies.md).
 
 ### Important NuGet Package Metadata
+
+This is the NuGet metadata that every project should provide:
 
 | SDK Project name                 | Nuspec name              | Description  |
 | -------------------------------- | ------------------------ | ------------ |
@@ -68,6 +76,10 @@ NuGet package dependencies are covered [here](./dependencies.md).
 
 **✓ DO** use a package icon image that is 64x64 and has a transparent background for best viewing results.
 
+**More Information**
+
+* [.nuspec reference](https://docs.microsoft.com/en-us/nuget/reference/nuspec)
+
 ### Pre-release Packages
 
 grib
@@ -78,9 +90,9 @@ NuGet supports generating a separate symbol package containing debug PDB files a
 
 Currently the main public host for symbols - SymbolServer - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not useful.
 
-**X DO NOT** create a symbols package containing PDBs.
-
 **✓ CONSIDER** embedding PDBs in the main NuGet package.
+
+**X AVOID** creating a symbols package containing PDBs.
 
 ## Publishing a NuGet Package
 

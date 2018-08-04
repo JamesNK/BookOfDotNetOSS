@@ -31,7 +31,7 @@ On the other hand **Consider** recommendations should generally be followed, but
 
 And finally less strong, **avoid** recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:
 
-**X AVOID** having package references demanding an exact version.
+**X AVOID** package references that demand an exact version.
 
 ## How Can I Help?
 

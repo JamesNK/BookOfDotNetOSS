@@ -2,7 +2,7 @@
 
 The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references allow you to quickly reuse and leverage already written functionality but they are also a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries breaking your .NET library, and vice versa!
 
-## Diamond Dependencies
+## Diamond dependencies
 
 It is a common situation for a .NET project to have multiple versions of a package in its dependency tree. For example an app depends on two NuGet packages, each of which depends on different versions of the same package. This is known as a diamond dependency.
 
@@ -13,10 +13,10 @@ At build time NuGet analyzes all the packages a project depends on (including th
 Most diamond dependencies are resolved without issue, however they can create issues in certain circumstances:
 
 1. **Conflicting NuGet package references** prevent a version being resolved during package restore.
-2. **Breaking changes** between the versions cause bugs and exceptions at runtime.
-3. The package assembly is **strong named**, the assembly version changed, and the app is running on the .NET Framework. Assembly binding redirects are required.
+2. **Breaking changes between the versions** cause bugs and exceptions at runtime.
+3. **The package assembly is strong named**, the assembly version changed, and the app is running on the .NET Framework. Assembly binding redirects are required.
 
-It is impossible to know what packages will be used alongside your own, but you can reduce the likelihood of a diamond dependency causing your OSS project to break by minimizing the number of packages you depend on.
+It is impossible to know what packages will be used alongside your own, but you can reduce the likelihood of a diamond dependency causing your library to break by minimizing the number of packages you depend on.
 
 **✓ DO** review your .NET library for unnecessary dependencies.
 
@@ -47,9 +47,41 @@ Upper version limits will cause NuGet to fail if there is a conflict, e.g. one l
 
 **X DO NOT** have package references with no minimum version.
 
-**X AVOID** having package references demanding an exact version.
+**X AVOID** package references that demand an exact version.
 
-**X AVOID** having package references with a version upper limit.
+**X AVOID** package references with a version upper limit.
+
+**More Information**
+
+* [How NuGet resolves package dependencies](https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution)
+
+## NuGet shared source packages
+
+One way to reduce external NuGet package dependencies is to reference share source packages. A shared source package contains source code files that are included in a project when referenced. Because you are just including source code files that are compiled with the rest of your project there is no external dependency and chance of conflict.
+
+Shared source packages are great for including small pieces of functionality, e.g. a shared source package containing helper methods for making HTTP calls.
+
+![Shared source package](./images/shared-source-package.png "Shared source package")
+
+Shared source packages can only be used by `PackageReference`, and should be a private reference to tell NuGet it is only used at development time and should not be exposed to anyone using your package.
+
+```xml
+<PackageReference Include="Microsoft.Extensions.Buffers.Testing.Sources" PrivateAssets="All" Version="1.0" />
+```
+
+![Shared source project](./images/shared-source-project.png "Shared source project")
+
+**✓ CONSIDER** referencing shared source packages for small, internal pieces of functionality.
+
+**✓ CONSIDER** making your package a shared source package if it provides small, internal pieces of functionality.
+
+**✓ DO** reference shared source packages with `PrivateAssets="All"`.
+
+**More Information**
+
+* [NuGet ContentFiles Demystified](https://blog.nuget.org/20160126/nuget-contentFiles-demystified.html)
+
+* [Source Code Only NuGet Packages](https://medium.com/@attilah/source-code-only-nuget-packages-8f34a8fb4738)
 
 ---
 

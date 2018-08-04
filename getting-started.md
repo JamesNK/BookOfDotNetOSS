@@ -20,11 +20,15 @@ Some first steps to creating and publishing a .NET OSS project:
 
 6. [Create a NuGet package](./nuget.md) (with [SourceLink enabled](./sourcelink.md)) and publish to nuget.org.
 
-7. [Iterate and version](./versioning.md), minimizing [breaking changes](./breaking-changes.md). Every developer who uses your library makes an investment in it. Get them new features without breaking what they already have.
+7. [Iterate and version](./versioning.md) your library while minimizing disruption from [breaking changes](./breaking-changes.md).
 
 **✓ DO** choose an [OSS license](https://choosealicense.com/). A project without a license defaults to exclusive copyright.
 
 **✓ DO** host your project on [GitHub](https://github.com/) or another online distributed source control service.
+
+**More Information**
+
+* [Choose an open source license](https://choosealicense.com/)
 
 ---
 
