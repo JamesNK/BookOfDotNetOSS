@@ -47,9 +47,9 @@ Changing the public API of a library so that assemblies compiled against older v
 
 A binary breaking change can also break an **entire assembly**. Renaming an assembly in `AssemblyNameAttribute`, or adding, removing or changing an assembly's strong naming key changes the assembly identity, and all compiled code that uses it will fail.
 
-**X DO NOT** change an assembly name.
+**✗ DO NOT** change an assembly name.
 
-**X DO NOT** add, remove or change the strong naming key.
+**✗ DO NOT** add, remove or change the strong naming key.
 
 **✓ CONSIDER** using abstract base classes instead of interfaces.
 

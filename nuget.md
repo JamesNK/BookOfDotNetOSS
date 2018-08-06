@@ -106,7 +106,7 @@ Currently the main public host for symbols - [SymbolSource](http://www.symbolsou
 
 **✓ CONSIDER** embedding PDBs in the main NuGet package.
 
-**X AVOID** creating a symbols package containing PDBs.
+**✗ AVOID** creating a symbols package containing PDBs.
 
 **More Information**
 

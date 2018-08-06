@@ -43,7 +43,7 @@ Strong-naming an assembly ensures the most people can use it, and .NET Core remo
 
 **✓ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
 
-**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
+**✗ DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
 
 > If an application ends up depending on both packages the developer will encounter type name conflicts.
 

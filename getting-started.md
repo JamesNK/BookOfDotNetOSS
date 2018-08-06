@@ -22,9 +22,11 @@ Some first steps to creating and publishing a .NET OSS project:
 
 7. [Iterate and version](./versioning.md) your library while minimizing disruption from [breaking changes](./breaking-changes.md).
 
-**✓ DO** choose an [OSS license](https://choosealicense.com/). A project without a license defaults to exclusive copyright.
-
 **✓ DO** host your project on [GitHub](https://github.com/) or another online distributed source control service.
+
+**✓ DO** choose an [OSS license](https://choosealicense.com/).
+
+> A project without a license defaults to [exclusive copyright](https://choosealicense.com/no-permission/), making it impossible for other people to use.
 
 **More Information**
 

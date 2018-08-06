@@ -42,11 +42,11 @@ Note that targeting .NET Standard, and successfully compiling your project, does
 
 > .NET Standard 2.0 is supported by all modern platforms and is the recommended way to support multiple platforms with one target.
 
-**X AVOID** including a `netstandard1x` target.
+**✗ AVOID** including a `netstandard1x` target.
 
 > A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages. If you do have a 1.x target then also include a 2.0 target.
 
-**X DO NOT** include a .NET Standard target if the library relies on a platform specific app model.
+**✗ DO NOT** include a .NET Standard target if the library relies on a platform specific app model.
 
 > A UWP control toolkit library for example depends on the UWP app model and would not run anywhere else.
 
@@ -58,11 +58,11 @@ Note that targeting .NET Standard, and successfully compiling your project, does
 
 .NET supports targeting versions of the .NET Framework that are long out of support, e.g. .NET 2.0, as well as platforms that are no longer commonly used, e.g. Silverlight and Windows Phone. The value of targeting such old platforms can be easily outweighed by the overhead of programming around missing APIs.
 
-**X DO NOT** include a Portable Class Library (PCL) target, e.g. `portable-net45+win8+wpa81+wp8`.
+**✗ DO NOT** include a Portable Class Library (PCL) target, e.g. `portable-net45+win8+wpa81+wp8`.
 
 > .NET Standard is the modern way to support multiple platforms.
 
-**X DO NOT** include targets for .NET platforms that are no longer supported, e.g. `SL4`, `WP`.
+**✗ DO NOT** include targets for .NET platforms that are no longer supported, e.g. `SL4`, `WP`.
 
 ---
 

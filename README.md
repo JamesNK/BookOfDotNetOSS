@@ -27,11 +27,11 @@ On the other hand **Consider** recommendations should generally be followed, but
 
 **Do not** indicates something you should almost never do:
 
-**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
+**✗ DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
 
 And finally less strong, **avoid** recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:
 
-**X AVOID** package references that demand an exact version.
+**✗ AVOID** NuGet package references that demand an exact version.
 
 ## How Can I Help?
 

@@ -45,11 +45,11 @@ Upper version limits will cause NuGet to fail if there is a conflict, e.g. one l
 
 ![Diamond dependency conflict](./images/diamond-dependency-conflict.png "Diamond dependency conflict")
 
-**X DO NOT** have package references with no minimum version.
+**✗ DO NOT** have NuGet package references with no minimum version.
 
-**X AVOID** package references that demand an exact version.
+**✗ AVOID** NuGet package references that demand an exact version.
 
-**X AVOID** package references with a version upper limit.
+**✗ AVOID** NuGet package references with a version upper limit.
 
 **More Information**
 

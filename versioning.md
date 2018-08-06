@@ -51,7 +51,7 @@ Strong naming combined with assembly version is a controversial subject. While s
 
 > e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of `1.0.0.0`, while Library 2.0 has AssemblyVersion of `2.0.0.0`. The assembly version changing less often reduces binding redirects.
 
-**X DO NOT** have a fixed AssemblyVersion.
+**✗ DO NOT** have a fixed AssemblyVersion.
 
 > While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed, and applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.
 
@@ -84,7 +84,7 @@ The assembly informational version is used to record additional version informat
 
 Note that an innocuous build warning is raised if this version does not follow the format `Major.Minor.Build.Revision`. The warning can be safely ignored.
 
-**X AVOID** setting the assembly informational version yourself.
+**✗ AVOID** setting the assembly informational version yourself.
 
 > Allow SourceLink to automatically generate the version containing NuGet and source control metadata.
 
