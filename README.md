@@ -35,8 +35,8 @@ And finally less strong, **avoid** recommendations are something this is not a g
 
 ## How Can I Help?
 
-1. Please contribute your knowledge to the documentation.
-2. Let developers know the documentation exists when a question comes up.
+1. Please contribute your knowledge to the documentation. .NET is evolving rapidly and help is needed to keep these docs up to date.
+2. Let developers know these docs exists when a question comes up.
 
 ## License
 

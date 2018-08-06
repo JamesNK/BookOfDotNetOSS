@@ -29,17 +29,23 @@ The benefits of strong naming are it provides a guarantee of identity (provided 
 
 Strong-naming an assembly ensures the most people can use it, and .NET Core removes the main problem with strong-naming.
 
-**✓ CONSIDER** strong-naming your project assemblies. Strong-naming allows assemblies to be:
+**✓ CONSIDER** strong-naming your project assemblies.
 
-  1. Referenced by other strong-named assemblies
-  2. Stored and referenced in the Global Assembly Cache (GAC)
-  3. Used by applications with plug-in architectures that require strong-named assemblies
+> Strong-naming allows assemblies to be:
+>
+>  1. Referenced by other strong-named assemblies
+>  2. Stored and referenced in the Global Assembly Cache (GAC)
+>  3. Used by applications with plug-in architectures that require strong-named assemblies
 
-**✓ CONSIDER** checking in the key used to strong-name into your source control system. You loose the benefit of identity of strong-naming but making the key public lets developers recompile the library with the same identity.
+**✓ CONSIDER** checking in the key used to strong-name into your source control system.
+
+> By making the key public you lose the strong-naming guarantee of publisher identity, but a public key lets developers recompile the library more easily.
 
 **✓ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
 
-**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`. If an application ends up depending on both packages the developer will encounter type name conflicts.
+**X DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
+
+> If an application ends up depending on both packages the developer will encounter type name conflicts.
 
 **More Information**
 

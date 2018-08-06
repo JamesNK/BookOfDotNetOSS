@@ -54,7 +54,7 @@ NuGet package dependencies are covered [here](./dependencies.md).
 
 ### Important NuGet Package Metadata
 
-This is the NuGet metadata that every project should provide:
+A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:
 
 | SDK Project name                 | Nuspec name              | Description  |
 | -------------------------------- | ------------------------ | ------------ |
@@ -72,7 +72,9 @@ This is the NuGet metadata that every project should provide:
 
 **✓ CONSIDER** using the `LICENSE` file in source control as the `LicenseUrl`, e.g. https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
 
-**✓ DO** use a HTTPS href to your package icon. Sites like nuget.org run with HTTPS and displaying a non-HTTPS image will create a mixed content warning.
+**✓ DO** use a HTTPS href to your package icon.
+
+> Sites like nuget.org run with HTTPS enabled and displaying a non-HTTPS image will create a mixed content warning.
 
 **✓ DO** use a package icon image that is 64x64 and has a transparent background for best viewing results.
 
@@ -82,17 +84,33 @@ This is the NuGet metadata that every project should provide:
 
 ### Pre-release Packages
 
-grib
+NuGet packages with a version suffix are considered pre-release. By default the NuGet Package Manager UI shows stable releases unless a user opts-in to pre-release packages, making pre-release packages ideal for limited user testing.
+
+```xml
+<PackageVersion>1.0.1-beta1</PackageVersion>
+```
+
+A thing to note with pre-release packages is a stable package cannot depend on a pre-release package. To depend on a pre-release package your own package must also be pre-release.
+
+**✓ DO** make a package pre-release when testing, previewing, or experimenting.
+
+**More Information**
+
+* [Building pre-release packages](https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages)
 
 ### Symbol Packages
 
 NuGet supports generating a separate symbol package containing debug PDB files along side the main package containing .NET assemblies. The idea of symbol packages is they are hosted on a symbol server and are only downloaded by a tool like Visual Studio on demand.
 
-Currently the main public host for symbols - SymbolServer - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not useful.
+Currently the main public host for symbols - [SymbolSource](http://www.symbolsource.org/) - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not generally useful.
 
 **✓ CONSIDER** embedding PDBs in the main NuGet package.
 
 **X AVOID** creating a symbols package containing PDBs.
+
+**More Information**
+
+* [Creating symbol packages](https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages)
 
 ## Publishing a NuGet Package
 

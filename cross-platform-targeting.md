@@ -11,9 +11,20 @@ You can also combine these two approaches. For example a `netstandard20` target 
 
 **✓ DO** support multiple .NET platforms if possible.
 
+**✓ DO** use a modern .NET Class Library together with the `TargetFrameworks` to support multiple platforms.
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <!-- This project will output net46 and netstandard2.0 assemblies -->
+    <TargetFrameworks>netstandard2.0;net46</TargetFrameworks>
+  </PropertyGroup>
+</Project>
+```
+
 **More Information**
 
-* [NuGet target frameworks](https://docs.microsoft.com/en-us/nuget/reference/target-frameworks)
+* [.NET target frameworks](https://docs.microsoft.com/en-us/dotnet/standard/frameworks)
 * [Multi-Targeting and Porting a .NET Library to .NET Core 2.0](https://weblog.west-wind.com/posts/2017/Jun/22/MultiTargeting-and-Porting-a-NET-Library-to-NET-Core-20)
 
 ## .NET Standard
@@ -27,11 +38,17 @@ Note that targeting .NET Standard, and successfully compiling your project, does
 1. Platform specific APIs will fail on other platforms, e.g. `Microsoft.Win32.Registry` will succeed on Windows and throw `PlatformNotSupportedException` when used on any other OS.
 2. APIs can behave differently, e.g. reflection APIs have different performance characteristics when an application uses ahead-of-time compilation on iOS or UWP.
 
-**✓ CONSIDER** including a `netstandard20` target. .NET Standard 2.0 is supported by all modern platforms and is the recommended way to support multiple platforms with one target.
+**✓ CONSIDER** including a `netstandard20` target.
 
-**X AVOID** including a `netstandard1x` target. A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages. Prefer .NET Standard 2.0 and above.
+> .NET Standard 2.0 is supported by all modern platforms and is the recommended way to support multiple platforms with one target.
 
-**X DO NOT** include a .NET Standard target if the library relies on a platform specific app model, e.g. library is a UWP control toolkit.
+**X AVOID** including a `netstandard1x` target.
+
+> A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages. If you do have a 1.x target then also include a 2.0 target.
+
+**X DO NOT** include a .NET Standard target if the library relies on a platform specific app model.
+
+> A UWP control toolkit library for example depends on the UWP app model and would not run anywhere else.
 
 **More Information**
 
@@ -41,7 +58,9 @@ Note that targeting .NET Standard, and successfully compiling your project, does
 
 .NET supports targeting versions of the .NET Framework that are long out of support, e.g. .NET 2.0, as well as platforms that are no longer commonly used, e.g. Silverlight and Windows Phone. The value of targeting such old platforms can be easily outweighed by the overhead of programming around missing APIs.
 
-**X DO NOT** include a Portable Class Library (PCL) target, e.g. `portable-net45+win8+wpa81+wp8`. .NET Standard is the modern way to support multiple platforms.
+**X DO NOT** include a Portable Class Library (PCL) target, e.g. `portable-net45+win8+wpa81+wp8`.
+
+> .NET Standard is the modern way to support multiple platforms.
 
 **X DO NOT** include targets for .NET platforms that are no longer supported, e.g. `SL4`, `WP`.
 
