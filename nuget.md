@@ -92,7 +92,9 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 
 A thing to note with pre-release packages is a stable package cannot depend on a pre-release package. To depend on a pre-release package your own package must also be pre-release.
 
-**✓ DO** make a package pre-release when testing, previewing, or experimenting.
+**✓ DO** publish a pre-release package when testing, previewing, or experimenting.
+
+**✓ DO** publish a stable package when it is ready so other stable packages can reference it.
 
 **More Information**
 

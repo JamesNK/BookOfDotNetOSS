@@ -41,7 +41,7 @@ Strong-naming an assembly ensures the most people can use it, and .NET Core remo
 
 > A publicly available key lets developers modify and recompile your library source code with the same key.
 >
-> Keeping your key private means strong-naming can be used to verify the identity of the library, but the NuGet package name offers its own form of identity.
+> While keeping the key private means strong-naming can be used to verify the identity of the library, the NuGet package name offers its own form of identity.
 
 **✓ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
 

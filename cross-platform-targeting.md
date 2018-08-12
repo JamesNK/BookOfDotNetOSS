@@ -1,13 +1,15 @@
 # Cross-platform Targeting
 
-The modern .NET ecosystem supports multiple operating systems and devices. It is important for .NET OSS projects to support as wide a range of developers as possible, from developers building ASP.NET websites hosted in Azure, to developers building .NET games in Unity.
+The modern .NET ecosystem supports multiple operating systems and devices. It is important for .NET OSS projects to support as wide a range of developers as possible, whether they are building an ASP.NET website hosted in Azure, or a .NET game in Unity.
 
-There are two general ways to add cross-platform support to a .NET library:
+There are two main ways to add cross-platform support to a .NET library:
 
-1. Target .NET implementations individually and include multiple assemblies in a NuGet package, e.g. target `net46` and `netcoreapp20` to build a NuGet package containing an assembly for the two .NET implementations.
-2. Target .NET Standard, a specification for .NET APIs available on all .NET implementations. The single .NET Standard assembly supports multiple .NET implementations.
+1. Target .NET implementations individually and include multiple assemblies in a NuGet package. This leverages NuGet's ability to have multiple assemblies in a package and select the best one when added to an application.
+2. Target .NET Standard, a specification for .NET APIs available on all .NET implementations. The single .NET Standard assembly supports multiple .NET implementations. A great benefit of .NET Standard is new .NET implementations will automatically be supported by your library without any modification.
 
-You can also combine these two approaches. For example a `netstandard20` target could be the default implementation and you could provide a .NET implementation specific target that uses implementation specific APIs for additional features. NuGet will automatically prefer the implementation specific target when possible.
+You can also combine these two approaches. For example a `netstandard20` target could be the default implementation and you could provide a .NET implementation specific target that uses implementation specific APIs for additional features. NuGet will automatically select the implementation specific target when possible, e.g. a .NET Core application will use the `netcoreapp20` assembly over the `netstandard20` assembly.
+
+![NuGet package with multiple assemblies](./images/nuget-package-multiple-assemblies.png "NuGet package with multiple assemblies")
 
 **✓ DO** use a modern .NET Class Library together with the `TargetFrameworks` if you want to build multiple targets.
 
@@ -22,7 +24,7 @@ You can also combine these two approaches. For example a `netstandard20` target 
 
 **✗ AVOID** targeting .NET implementations and .NET Standard when the .NET implementation is functionally the same.
 
-> The .NET Standard version of your library will automatically be used. Targeting .NET implementations increases the `*.nupkg` size for no benefit.
+> The .NET Standard assembly will automatically be used by NuGet. Targeting .NET implementations increases the `*.nupkg` size for no benefit.
 
 **More Information**
 
