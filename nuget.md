@@ -90,7 +90,7 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 <PackageVersion>1.0.1-beta1</PackageVersion>
 ```
 
-Note that a stable package cannot depend on a pre-release package.
+Note that a stable package cannot depend on a pre-release package. You must either make your own package pre-release until the dependency is stable, or depend on an older stable version.
 
 ![Nuget pre-release package dependency](./images/nuget-prerelease-package.png "Nuget pre-release package dependency")
 
