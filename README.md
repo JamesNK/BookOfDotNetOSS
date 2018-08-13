@@ -12,6 +12,7 @@ The goal of this website is to bring together the wisdom and best practices spre
 * [Strong naming](./strong-naming.md)
 * [NuGet](./nuget.md)
   * [SourceLink](./sourcelink.md)
+  * [Publishing](./nuget-publishing.md)
 * [Versioning](./versioning.md)
   * [Breaking changes](./breaking-changes.md)
 

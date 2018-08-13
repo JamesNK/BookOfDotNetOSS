@@ -116,18 +116,6 @@ Currently the main public host for symbols - [SymbolSource](http://www.symbolsou
 
 * [Creating symbol packages](https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages)
 
-## Publishing a NuGet Package
-
-grib
-
-Note that nuget.org does not allow a package to have duplicate versions and does not allow a package to be deleted after it has been published. If you make a mistake you will need to unlist the incorrect package, increment the version number and publish a new version.
-
-**✓ DO** use a Microsoft account to login to NuGet.org
-
-**✓ DO** enable two factor authentication for accessing nuget.org
-
-![alt text](./images/nuget-2fa.png "NuGet Account Security")
-
 ---
 
 [Home](./README.md)
