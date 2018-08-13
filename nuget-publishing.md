@@ -14,7 +14,7 @@ NuGet is more than just NuGet.org. Here are some of the different places to publ
 
 **✓ CONSIDER** publishing pre-release packages to a MyGet feed from a continuous integration build.
 
-**✓ CONSIDER** testing packages locally using a local feed.
+**✓ CONSIDER** testing packages in your development environment using a local feed.
 
 **More Information**
 
@@ -25,7 +25,7 @@ NuGet is more than just NuGet.org. Here are some of the different places to publ
 
 ## NuGet.org Security
 
-It is important that bad actors cannot access your NuGet account and upload a malicious version of your library. NuGet.org offers two factor authentication and publish notifications, both enabled after logging in on the **Account settings** page.
+It is important that bad actors cannot access your NuGet account and upload a malicious version of your library. NuGet.org offers two factor authentication and publish email notifications. Enable these features after logging into NuGet.org on the **Account settings** page.
 
 ![alt text](./images/nuget-2fa.png "NuGet Account Security")
 
