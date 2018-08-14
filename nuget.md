@@ -21,7 +21,7 @@ There are two main ways to create a NuGet package. The newer and recommended way
 </Project>
 ```
 
-The older of creating a NuGet package is with a nuspec file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
+The older way of creating a NuGet package is with a nuspec file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -56,7 +56,7 @@ NuGet package dependencies are covered [here](./dependencies.md).
 
 A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:
 
-| SDK Project name                 | Nuspec name              | Description  |
+| MSBuild Property name            | Nuspec name              | Description  |
 | -------------------------------- | ------------------------ | ------------ |
 | PackageId                        | id                       | The package identifier. Prefix can be reserved if it meets the [criteria](https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation) |
 | PackageVersion                   | version                  | NuGet package version. Read more about it [here](./versioning.md#NuGet-Package-Version).             |
