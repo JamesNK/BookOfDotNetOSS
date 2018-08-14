@@ -29,7 +29,7 @@ A package reference specifies the range of valid packages it allows. Typically t
 <PackageReference Include="ExamplePackage" Version="1.0" />
 ```
 
-The rules that NuGet uses when resolving dependencies are [complex](https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution), but one of the rules is NuGet attempts to find the lowest applicable version. NuGet prefers the lowest application version over using the highest available because the lowest will have the least compatibility issues.
+The rules that NuGet uses when resolving dependencies are [complex](https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution), but NuGet always attempts to find the lowest applicable version. NuGet prefers the lowest application version over using the highest available because the lowest will have the least compatibility issues.
 
 Because of NuGet's lowest application version rule it is not necessary to place an upper version or exact range on package references to avoid getting the latest version. NuGet already tries to find the lowest, most compatible version for you.
 
@@ -76,6 +76,10 @@ Shared source packages can only be used by `PackageReference`, and should be a p
 **✓ CONSIDER** making your package a shared source package if it provides small, internal pieces of functionality.
 
 **✓ DO** reference shared source packages with `PrivateAssets="All"`.
+
+**✗ AVOID** shared-source package types in your public API.
+
+> Shared-source types are compiled into the referencing assembly and can't be exchanged across assembly boundaries, e.g. a shared-source `IRepository` type in one project is a separate type from the same shared-source `IRepository` in another project.
 
 **More Information**
 
