@@ -5,9 +5,9 @@ The modern .NET ecosystem supports multiple operating systems and devices. It is
 There are two main ways to add cross-platform support to a .NET library:
 
 1. Target .NET implementations individually and include multiple assemblies in a NuGet package. This leverages NuGet's ability to have multiple assemblies in a package and select the best one when added to an application.
-2. Target .NET Standard, a specification for .NET APIs available on all .NET implementations. The single .NET Standard assembly supports multiple .NET implementations. A great benefit of .NET Standard is new .NET implementations will automatically be supported by your library without any modification.
+2. Target .NET Standard, a specification for .NET APIs available on all .NET implementations. The single .NET Standard assembly supports multiple .NET implementations. A great benefit of .NET Standard is that new .NET implementations will automatically be supported by your library without any modification.
 
-You can also combine these two approaches. For example a `netstandard2.0` target could be the default implementation and you could provide a .NET implementation specific target that uses implementation specific APIs for additional features. NuGet will automatically select the implementation specific target when possible, e.g. a .NET Core application will use the `netcoreapp2.0` assembly over the `netstandard2.0` assembly.
+You can also combine these two approaches. For example, a `netstandard2.0` target could be the default implementation and you could provide a .NET implementation specific target that uses implementation specific APIs for additional features. NuGet will automatically select the implementation specific target when possible, e.g. a .NET Core application will use the `netcoreapp2.0` assembly over the `netstandard2.0` assembly.
 
 ![NuGet package with multiple assemblies](./images/nuget-package-multiple-assemblies.png "NuGet package with multiple assemblies")
 
@@ -50,11 +50,11 @@ Note that targeting .NET Standard, and successfully compiling your project, does
 
 > A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages. Modern .NET platforms, including .NET Framework 4.6.1, UWP and Xamarin, all support .NET Standard 2.0. You should only target .NET Standard 1.x if you specifically need to target an older platform.
 >
-> If you do have a 1.x target then also include a 2.0 target. Modern platforms will use the 2.0 target and older platforms will fallback to 1.x.
+> If you do have a 1.x target then also include a 2.0 target. Modern platforms will use the 2.0 target and older platforms will fall back to 1.x.
 
 **✗ DO NOT** include a .NET Standard target if the library relies on a platform specific app model.
 
-> For example a UWP control toolkit library depends on an app model that is only available on UWP. App model specific APIs will not be not available in .NET Standard.
+> For example, a UWP control toolkit library depends on an app model that is only available on UWP. App model specific APIs will not be available in .NET Standard.
 
 **More Information**
 
