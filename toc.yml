@@ -1,0 +1,6 @@
+- name: The Book of .NET OSS
+  href: /
+  homepage: index.md
+- name: Documentation
+  href: docs/
+  homepage: docs/getting-started.md

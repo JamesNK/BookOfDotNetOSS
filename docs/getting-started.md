@@ -31,7 +31,3 @@ Some first steps to creating and publishing a .NET OSS project:
 **More Information**
 
 * [Choose an open source license](https://choosealicense.com/)
-
----
-
-[Home](./README.md)

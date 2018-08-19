@@ -2,7 +2,7 @@
 
 NuGet is a package manager for the .NET eco-system and is the primary way that .NET OSS projects are discovered and acquired by developers. NuGet packages are generally hosted on nuget.org, a free service provided by Microsoft for hosting NuGet packages, but you can publish to custom NuGet services like MyGet and VSTS Package Service.
 
-![NuGet](./images/nuget-logo.png "NuGet")
+![NuGet](../images/nuget-logo.png "NuGet")
 
 ## Creating a NuGet Package
 
@@ -48,18 +48,18 @@ The older way of creating a NuGet package is with a nuspec file and the `nuget.e
 * [Migrate from packages.config to PackageReference
 ](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)
 
-### Package Dependences
+## Package Dependences
 
 NuGet package dependencies are covered [here](./dependencies.md).
 
-### Important NuGet Package Metadata
+## Important NuGet Package Metadata
 
 A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:
 
 | MSBuild Property name            | Nuspec name              | Description  |
 | -------------------------------- | ------------------------ | ------------ |
 | PackageId                        | id                       | The package identifier. Prefix can be reserved if it meets the [criteria](https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation) |
-| PackageVersion                   | version                  | NuGet package version. Read more about it [here](./versioning.md#NuGet-Package-Version).             |
+| PackageVersion                   | version                  | NuGet package version. Read more about it [here](./versioning.md#nuget-package-version).             |
 | Title                            | title                    | A human-friendly title of the package. It defaults to the `PackageId`.             |
 | Description                      | description              | A long description of the package displayed in UI.             |
 | Authors                          | authors                  | A comma-separated list of packages authors, matching the profile names on nuget.org.             |
@@ -82,7 +82,7 @@ A NuGet package has a lot of associated metadata. This is the metadata that ever
 
 * [.nuspec reference](https://docs.microsoft.com/en-us/nuget/reference/nuspec)
 
-### Pre-release Packages
+## Pre-release Packages
 
 NuGet packages with a version suffix are considered pre-release. By default the NuGet Package Manager UI shows stable releases unless a user opts-in to pre-release packages, making pre-release packages ideal for limited user testing.
 
@@ -90,9 +90,10 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 <PackageVersion>1.0.1-beta1</PackageVersion>
 ```
 
-Note that a stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.
+> [!NOTE]
+> Stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.
 
-![Nuget pre-release package dependency](./images/nuget-prerelease-package.png "Nuget pre-release package dependency")
+![Nuget pre-release package dependency](../images/nuget-prerelease-package.png "Nuget pre-release package dependency")
 
 **✓ DO** publish a pre-release package when testing, previewing, or experimenting.
 
@@ -102,7 +103,7 @@ Note that a stable package cannot depend on a pre-release package. You must eith
 
 * [Building pre-release packages](https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages)
 
-### Symbol Packages
+## Symbol Packages
 
 NuGet supports generating a separate symbol package containing debug PDB files along side the main package containing .NET assemblies. The idea of symbol packages is they are hosted on a symbol server and are only downloaded by a tool like Visual Studio on demand.
 
@@ -115,7 +116,3 @@ Currently the main public host for symbols - [SymbolSource](http://www.symbolsou
 **More Information**
 
 * [Creating symbol packages](https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages)
-
----
-
-[Home](./README.md)

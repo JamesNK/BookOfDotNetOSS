@@ -40,7 +40,8 @@ Strong-naming an assembly ensures the most people can use it, and .NET Core remo
 **✓ CONSIDER** checking in the key used to strong-name into your source control system.
 
 > A publicly available key lets developers modify and recompile your library source code with the same key.
->
+
+> [!NOTE]
 > While keeping the key private means strong-naming can be used to verify the identity of the library, publishing the NuGet package to NuGet.org offers a similar form of identity.
 >
 > When a cryptographic identity is desired, [Authenticode](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/authenticode) and [NuGet Package Signing](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package) provide more functionality.
@@ -55,7 +56,3 @@ Strong-naming an assembly ensures the most people can use it, and .NET Core remo
 
 * [Strong-Named Assemblies](https://docs.microsoft.com/en-us/dotnet/framework/app-domains/strong-named-assemblies)
 * [Redirecting Assembly Versions](https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions)
-
----
-
-[Home](./README.md)

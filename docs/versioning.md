@@ -18,7 +18,7 @@ The NuGet package version is what is displayed on nuget.org, the Visual Studio N
 <PackageVersion>1.0.0-alpha1</PackageVersion>
 ```
 
-The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages [here](./nuget.md#prerelease).
+The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages [here](./nuget.md#pre-release-packages).
 
 Because the NuGet package version is the most visible version to developers, it is a good idea to update it using [Semantic Versioning (SemVer)](https://semver.org/). SemVer indicates the significance of changes between release (e.g. `1.0` to `2.0` indicates that there are breaking changes) and helps developers make an informed decision when choosing what version to use.
 
@@ -68,7 +68,7 @@ The assembly file version is used to display a file version in Windows and has n
 <FileVersion>11.0.2.21924</FileVersion>
 ```
 
-![Windows Explorer](./images/win-properties.png "Windows Explorer")
+![Windows Explorer](../images/win-properties.png "Windows Explorer")
 
 **✓ CONSIDER** including the a continuous integration build number as AssemblyFileVersion revision.
 
@@ -82,12 +82,9 @@ The assembly informational version is used to record additional version informat
 <AssemblyInformationalVersion>The quick brown fox jumped over the lazy dog.</AssemblyInformationalVersion>
 ```
 
-Note that an innocuous build warning is raised if this version does not follow the format `Major.Minor.Build.Revision`. The warning can be safely ignored.
+> [!NOTE]
+> An innocuous build warning is raised if this version does not follow the format `Major.Minor.Build.Revision`. The warning can be safely ignored.
 
 **✗ AVOID** setting the assembly informational version yourself.
 
 > Allow SourceLink to automatically generate the version containing NuGet and source control metadata.
-
----
-
-[Home](./README.md)
