@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Publishing a NuGet Package | The Book of .NET OSS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Publishing a NuGet Package | The Book of .NET OSS ">
+    <meta name="generator" content="docfx 2.38.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="publishing-a-nuget-package">Publishing a NuGet Package</h1>
+
+<p>NuGet is more than just NuGet.org. Here are some of the different places to publish an OSS NuGet package:</p>
+<ul>
+<li><p><strong><a href="https://www.nuget.org/">NuGet.org</a></strong> is the primary online repository for NuGet packages. All packages on NuGet.org are publicly available to everyone. By default Visual Studio has nuget.org as a package source and for many developers this is the only package repository they will interact with. Stable packages and pre-release packages you want community feedback on should be published here.</p>
+</li>
+<li><p>The <strong><a href="https://myget.org/">MyGet</a></strong> repository service supports free custom package feeds for open source projects. A MyGet public custom feed is an ideal place to publish pre-release packages created by your CI service. MyGet also provides private feeds commercially.</p>
+</li>
+<li><p>A <strong>local feed</strong> allows you to treat a folder like a package repository and <code>*.nupkg</code> files in the folder are accessible by NuGet. A local feed is useful for testing a NuGet package prior to publishing it to NuGet.org.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nuget.org does not allow a package to be deleted once it is uploaded. A package can be unlisted so that it is not publicly visible in the UI but the <code>*.nupkg</code> can still be downloaded on restore. Also nuget.org does not allow duplicate package versions. To correct a NuGet package with an error you have to unlist the incorrect package, increment the version number and publish a new version of the package.</p>
+</div>
+<p><strong>✓ DO</strong> publish stable packages and pre-release packages you want community feedback on to NuGet.org.</p>
+<p><strong>✓ CONSIDER</strong> publishing pre-release packages to a MyGet feed from a continuous integration build.</p>
+<p><strong>✓ CONSIDER</strong> testing packages in your development environment using a local feed.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/publish-a-package">Publish a package to NuGet.org</a></li>
+<li><a href="https://docs.microsoft.com/en-us/nuget/policies/deleting-packages">Deleting packages on NuGet.org</a></li>
+<li><a href="https://www.myget.org/opensource">MyGet open source offer</a></li>
+<li><a href="https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds">NuGet local feeds</a></li>
+</ul>
+<h2 id="nugetorg-security">NuGet.org Security</h2>
+<p>It is important that bad actors cannot access your NuGet account and upload a malicious version of your library. NuGet.org offers two factor authentication and publish email notifications. Enable these features after logging into NuGet.org on the <strong>Account settings</strong> page.</p>
+<p><img src="../images/nuget-2fa.png" alt="alt text" title="NuGet Account Security"></p>
+<p><strong>✓ DO</strong> use a Microsoft account to login to NuGet.</p>
+<p><strong>✓ DO</strong> enable two factor authentication for accessing NuGet.</p>
+<p><strong>✓ DO</strong> enable email notification when a package is published.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/nuget-publishing.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

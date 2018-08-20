@@ -1,0 +1,182 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Versioning | The Book of .NET OSS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Versioning | The Book of .NET OSS ">
+    <meta name="generator" content="docfx 2.38.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="versioning">Versioning</h1>
+
+<p>It is rare for an OSS project to have one release so you must think about how you will go about releasing new versions.</p>
+<h2 id="breaking-changes">Breaking Changes</h2>
+<p>Handling breaking changes between versions is covered in detail <a href="breaking-changes.html">here</a>.</p>
+<h2 id="version-numbers">Version Numbers</h2>
+<p>A .NET library has many ways to specify a version. These are the most important:</p>
+<h3 id="nuget-package-version">NuGet Package Version</h3>
+<p>The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to <code>package.config</code>/<code>*.csproj</code> when the packaged is used. This version number is what users will commonly see and to refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavior.</p>
+<pre><code class="lang-xml">&lt;PackageVersion&gt;1.0.0-alpha1&lt;/PackageVersion&gt;
+</code></pre>
+<p>The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages <a href="nuget.html#pre-release-packages">here</a>.</p>
+<p>Because the NuGet package version is the most visible version to developers, it is a good idea to update it using <a href="https://semver.org/">Semantic Versioning (SemVer)</a>. SemVer indicates the significance of changes between release (e.g. <code>1.0</code> to <code>2.0</code> indicates that there are breaking changes) and helps developers make an informed decision when choosing what version to use.</p>
+<p><strong>✓ CONSIDER</strong> using <a href="https://semver.org/">SemVer 2.0.0</a> to version your NuGet package.</p>
+<p><strong>✓ DO</strong> use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.</p>
+<p><strong>✓ DO</strong> include a pre-release suffix when releasing a test package.</p>
+<blockquote>
+<p>Users must opt-in to getting pre-release packages so understand that the package is not complete.</p>
+</blockquote>
+<p><strong>More information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/reference/package-versioning">NuGet package versioning</a></li>
+<li><a href="https://semver.org/">Semantic Versioning 2.0.0</a></li>
+</ul>
+<h3 id="assembly-version">Assembly Version</h3>
+<p>The assembly version is what the CLR uses at runtime to select which version of an assembly to load. Selecting an assembly using versioning only applies to assemblies with a strong name.</p>
+<pre><code class="lang-xml">&lt;AssemblyVersion&gt;1.0.0.0&lt;/AssemblyVersion&gt;
+</code></pre>
+<p>By default, the Windows .NET Framework CLR demands an exact match when loading a strong named assembly, e.g. <code>Libary1, Version=1.0.0.0</code> was compiled with a reference to <code>Newtonsoft.Json, Version=11.0.0.0</code> and will only load that exactly version 11.0.0.0. To load a different version at runtime a binding redirect must be added to the .NET application's config file.</p>
+<p>Strong naming combined with assembly version is a controversial subject. While strong naming a library has a number of benefits, it often results in runtime exceptions that an assembly can't be found and <a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions">requires binding redirects</a> in <code>app.config</code>/<code>web.config</code> to be fixed. .NET Core assembly loading has been relaxed, and the .NET Core CLR will automatically load assemblies at runtime with a higher version.</p>
+<p><strong>✓ CONSIDER</strong> only including a major version in the AssemblyVersion.</p>
+<blockquote>
+<p>e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of <code>1.0.0.0</code>, while Library 2.0 has AssemblyVersion of <code>2.0.0.0</code>. The assembly version changing less often reduces binding redirects.</p>
+</blockquote>
+<p><strong>✗ DO NOT</strong> have a fixed AssemblyVersion.</p>
+<blockquote>
+<p>While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed, and applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
+</blockquote>
+<p><strong>More information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/app-domains/assembly-versioning">Assembly versioning</a></li>
+<li><a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions">Redirecting Assembly Versions</a></li>
+</ul>
+<h3 id="assembly-file-version">Assembly File Version</h3>
+<p>The assembly file version is used to display a file version in Windows and has no effect on runtime behavior. Setting this version is optional. It is visible in the File Properties dialog in Windows Explorer:</p>
+<pre><code class="lang-xml">&lt;FileVersion&gt;11.0.2.21924&lt;/FileVersion&gt;
+</code></pre>
+<p><img src="../images/win-properties.png" alt="Windows Explorer" title="Windows Explorer"></p>
+<p><strong>✓ CONSIDER</strong> including the a continuous integration build number as AssemblyFileVersion revision.</p>
+<blockquote>
+<p>e.g. you are building version 1.0.0 of your project, and the continuous integration build number is 99 so your AssemblyFileVersion is 1.0.0.99.</p>
+</blockquote>
+<h3 id="assembly-informational-version">Assembly Informational Version</h3>
+<p>The assembly informational version is used to record additional version information and has no effect on runtime behavior. Setting this version is optional. If you are using SourceLink this version will automatically be included on build to contain the NuGet package version plus a source control version, e.g. the git commit hash the assembly was built from. Read more about SourceLink <a href="sourcelink.html">here</a>.</p>
+<pre><code class="lang-xml">&lt;AssemblyInformationalVersion&gt;The quick brown fox jumped over the lazy dog.&lt;/AssemblyInformationalVersion&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>An innocuous build warning is raised if this version does not follow the format <code>Major.Minor.Build.Revision</code>. The warning can be safely ignored.</p>
+</div>
+<p><strong>✗ AVOID</strong> setting the assembly informational version yourself.</p>
+<blockquote>
+<p>Allow SourceLink to automatically generate the version containing NuGet and source control metadata.</p>
+</blockquote>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/versioning.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

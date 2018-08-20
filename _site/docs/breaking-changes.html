@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Breaking Changes | The Book of .NET OSS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Breaking Changes | The Book of .NET OSS ">
+    <meta name="generator" content="docfx 2.38.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="breaking-changes">Breaking Changes</h1>
+
+<p>It is important for an OSS project to find a balance between stability for existing users and innovation for the future. As developers, we lend towards refactoring and rethinking code until it is perfect, but breaking your existing users has a negative impact, especially for low-level libraries.</p>
+<h2 id="project-types-and-breaking-changes">Project types and breaking changes</h2>
+<p>How a project is used by the .NET community changes the effect of breaking changes on end user developers.</p>
+<ul>
+<li><p><strong>Low and middle-level libraries</strong> like a serializer, HTML parser, DB ORM, or web framework are the most impacted by breaking changes.</p>
+<p>These building block packages are used both by end user developers to build applications, and by other OSS projects as NuGet dependencies. For example, if you are building an application and are using an OSS client to call a web service, and the HTTP library the client uses is updated with a breaking change, you have no way to directly fix the OSS client because it is code you don't own. You must either find compatible versions of the client and HTTP library, or submit a fix to the OSS client and wait for a new version. The worst-case situation is if you want to use two OSS projects that depend on mutually incompatible versions of a third library.</p>
+</li>
+<li><p><strong>High level libraries</strong> like a suite of UI controls are less sensitive to breaking changes.</p>
+<p>Because a high-level library is likely to be directly referenced in the end user application, in the event of breaking changes the developer can choose to not update to the latest version, or can modify their application to work with the breaking change.</p>
+</li>
+</ul>
+<p><strong>✓ DO</strong> what you can to minimise breaking changes when developing a low-level .NET library.</p>
+<p><strong>✓ CONSIDER</strong> publishing a major rewrite of a library as a new NuGet package.</p>
+<h2 id="types-of-breaking-changes">Types of Breaking Changes</h2>
+<p>Breaking changes fall into different categories and are not equally impactful.</p>
+<h3 id="source-breaking-change">Source Breaking Change</h3>
+<p>A source breaking change doesn't affect program execution but will cause compilation errors the next time the application is recompiled. Examples of source breaking changes include adding a new overload that can result in ambiguity in method calls that were unambiguous previously, or changing a parameter name that can break anyone calling that method using named parameters.</p>
+<pre><code class="lang-cs">public class Task
+{
+    // Adding a type called Task could conflict with System.Threading.Task at compilation
+}
+</code></pre>
+<p>Because a source breaking change is only harmful when the developer recompiles their application, it is the least disruptive. Developers can fix their own broken source code easily.</p>
+<h3 id="behavior-breaking-change">Behavior Breaking Change</h3>
+<p>Behavior changes are the most common breaking change: almost any change in behavior could break someone. Even a bug fix can qualify if users relied on the previously broken behavior.</p>
+<p><strong>✓ CONSIDER</strong> leaving new features off by default if they affect existing users, and let developers opt-in to the feature with a setting.</p>
+<h3 id="binary-breaking-change">Binary Breaking Change</h3>
+<p>A binary breaking change happens when you change the public API of a library so that assemblies compiled against older versions are no longer able to call it. For example, changing a method's signature by adding a new parameter will cause already compiled assemblies that called it to throw a <code>MissingMethodException</code>.</p>
+<p>A binary breaking change can also break an <strong>entire assembly</strong>. Renaming an assembly in <code>AssemblyNameAttribute</code>, adding, removing or changing an assembly's strong naming key changes the assembly identity, and all compiled code that uses it will fail.</p>
+<p><strong>✗ DO NOT</strong> change an assembly name.</p>
+<p><strong>✗ DO NOT</strong> add, remove or change the strong naming key.</p>
+<p><strong>✓ CONSIDER</strong> using abstract base classes instead of interfaces.</p>
+<blockquote>
+<p>Adding anything to an interface will cause existing types that implement it to fail. An abstract base class allows you to add a default virtual implementation.</p>
+</blockquote>
+<p><strong>✓ CONSIDER</strong> placing the <code>ObsoleteAttribute</code> on types and members that you intend to remove with instructions for fixing their code to no longer use the obsolete API.</p>
+<blockquote>
+<p>Code that calls types and methods with the <code>ObsoleteAttribute</code> will generate a build warning with the message supplied to the attribute. The warnings give people who use the obsolete API surface time to migrate so that when the obsolete API is removed, most are no longer be using it.</p>
+</blockquote>
+<pre><code class="lang-cs">public class Document
+{
+    [Obsolete(&quot;LoadDocument(string) is obsolete. Use LoadDocument(Uri) instead.&quot;)]
+    public static Document LoadDocument(string uri)
+    {
+        return LoadDocument(new Uri(uri));
+    }
+
+    public static Document LoadDocument(Uri uri)
+    {
+        // Load the document
+    }
+}
+</code></pre>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://stackoverflow.com/questions/1456785/a-definitive-guide-to-api-breaking-changes-in-net">A definitive guide to API-breaking changes in .NET</a></li>
+<li><a href="https://github.com/dotnet/corefx/blob/master/Documentation/coding-guidelines/breaking-change-rules.md">CoreFX Breaking Change Rules</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/breaking-changes.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

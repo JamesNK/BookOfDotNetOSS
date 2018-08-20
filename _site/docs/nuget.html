@@ -1,0 +1,251 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>NuGet | The Book of .NET OSS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="NuGet | The Book of .NET OSS ">
+    <meta name="generator" content="docfx 2.38.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="nuget">NuGet</h1>
+
+<p>NuGet is a package manager for the .NET eco-system and is the primary way that .NET OSS projects are discovered and acquired by developers. NuGet packages are generally hosted on nuget.org, a free service provided by Microsoft for hosting NuGet packages, but you can publish to custom NuGet services like MyGet and VSTS Package Service.</p>
+<p><img src="../images/nuget-logo.png" alt="NuGet" title="NuGet"></p>
+<h2 id="creating-a-nuget-package">Creating a NuGet Package</h2>
+<p>A NuGet package (<code>*.nupkg</code>) is basically a zip file containing .NET assemblies and associated metadata.</p>
+<p>There are two main ways to create a NuGet package. The newer and recommended way is to create a package from a modern .NET Class Library (a modern .NET Class Library <code>csproj</code>/<code>vbproj</code> file starts with <code>&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;</code>). Assemblies and targets are automatically added to the package and remaining metadata, e.g. package name and version number, is added to the MSBuild file. Compiling with the <code>pack</code> command outputs a <code>*.nupkg</code> file instead of assemblies.</p>
+<pre><code class="lang-xml">&lt;Project Sdk=&quot;Microsoft.NET.Sdk&quot;&gt;
+  &lt;PropertyGroup&gt;
+    &lt;TargetFramework&gt;netstandard2.0&lt;/TargetFramework&gt;
+    &lt;AssemblyName&gt;Contoso.Api&lt;/AssemblyName&gt;
+    &lt;PackageVersion&gt;1.1.0&lt;/PackageVersion&gt;
+    &lt;Authors&gt;John Doe&lt;/Authors&gt;
+  &lt;/PropertyGroup&gt;
+&lt;/Project&gt;
+</code></pre>
+<p>The older way of creating a NuGet package is with a nuspec file and the <code>nuget.exe</code> command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;package xmlns=&quot;http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd&quot;&gt;
+    &lt;metadata&gt;
+        &lt;id&gt;Contoso.Api&lt;/id&gt;
+        &lt;version&gt;1.1.0&lt;/version&gt;
+        &lt;description&gt;&lt;/description&gt;
+        &lt;authors&gt;John Doe&lt;/authors&gt;
+    &lt;/metadata&gt;
+    &lt;files&gt;
+        &lt;file src=&quot;bin\Release\netstandard2.0\*.dll&quot; target=&quot;netstandard2.0&quot; /&gt;
+    &lt;/files&gt;
+&lt;/package&gt;
+</code></pre>
+<p><strong>✓ CONSIDER</strong> using a modern .NET Class Library to create a NuGet package if possible.</p>
+<p><strong>✓ CONSIDER</strong> setting up SourceLink to add source control metadata to your assemblies and NuGet package.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package">Creating NuGet packages</a></li>
+<li><a href="https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference">Migrate from packages.config to PackageReference
+</a></li>
+</ul>
+<h2 id="package-dependences">Package Dependences</h2>
+<p>NuGet package dependencies are covered <a href="dependencies.html">here</a>.</p>
+<h2 id="important-nuget-package-metadata">Important NuGet Package Metadata</h2>
+<p>A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:</p>
+<table>
+<thead>
+<tr>
+<th>MSBuild Property name</th>
+<th>Nuspec name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PackageId</td>
+<td>id</td>
+<td>The package identifier. Prefix can be reserved if it meets the <a href="https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation">criteria</a></td>
+</tr>
+<tr>
+<td>PackageVersion</td>
+<td>version</td>
+<td>NuGet package version. Read more about it <a href="versioning.html#nuget-package-version">here</a>.</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>title</td>
+<td>A human-friendly title of the package. It defaults to the <code>PackageId</code>.</td>
+</tr>
+<tr>
+<td>Description</td>
+<td>description</td>
+<td>A long description of the package displayed in UI.</td>
+</tr>
+<tr>
+<td>Authors</td>
+<td>authors</td>
+<td>A comma-separated list of packages authors, matching the profile names on nuget.org.</td>
+</tr>
+<tr>
+<td>PackageTags</td>
+<td>tags</td>
+<td>A space-delimited list of tags and keywords that describe the package. These are used when searching for packages.</td>
+</tr>
+<tr>
+<td>PackageIconUrl</td>
+<td>iconUrl</td>
+<td>A URL for an image to use as the icon for the package. URL should be HTTPS and the image should be 64x64 and have a transparent background.</td>
+</tr>
+<tr>
+<td>PackageProjectUrl</td>
+<td>projectUrl</td>
+<td>A URL for the project homepage or source repository.</td>
+</tr>
+<tr>
+<td>PackageLicenseUrl</td>
+<td>licenseUrl</td>
+<td>A URL to the project license. Can be the URL to the <code>LICENSE</code> file in source control.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>✓ CONSIDER</strong> choosing a NuGet package name with a prefix that meets NuGet's prefix reservation <a href="https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation">criteria</a>.</p>
+<p><strong>✓ CONSIDER</strong> using the <code>LICENSE</code> file in source control as the <code>LicenseUrl</code>, e.g. <a href="https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md">https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md</a></p>
+<p><strong>✓ DO</strong> use a HTTPS href to your package icon.</p>
+<blockquote>
+<p>Sites like nuget.org run with HTTPS enabled and displaying a non-HTTPS image will create a mixed content warning.</p>
+</blockquote>
+<p><strong>✓ DO</strong> use a package icon image that is 64x64 and has a transparent background for best viewing results.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/reference/nuspec">.nuspec reference</a></li>
+</ul>
+<h2 id="pre-release-packages">Pre-release Packages</h2>
+<p>NuGet packages with a version suffix are considered pre-release. By default the NuGet Package Manager UI shows stable releases unless a user opts-in to pre-release packages, making pre-release packages ideal for limited user testing.</p>
+<pre><code class="lang-xml">&lt;PackageVersion&gt;1.0.1-beta1&lt;/PackageVersion&gt;
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.</p>
+</div>
+<p><img src="../images/nuget-prerelease-package.png" alt="Nuget pre-release package dependency" title="Nuget pre-release package dependency"></p>
+<p><strong>✓ DO</strong> publish a pre-release package when testing, previewing, or experimenting.</p>
+<p><strong>✓ DO</strong> publish a stable package when it is ready so other stable packages can reference it.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages">Building pre-release packages</a></li>
+</ul>
+<h2 id="symbol-packages">Symbol Packages</h2>
+<p>NuGet supports generating a separate symbol package containing debug PDB files along side the main package containing .NET assemblies. The idea of symbol packages is they are hosted on a symbol server and are only downloaded by a tool like Visual Studio on demand.</p>
+<p>Currently the main public host for symbols - <a href="http://www.symbolsource.org/">SymbolSource</a> - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not generally useful.</p>
+<p><strong>✓ CONSIDER</strong> embedding PDBs in the main NuGet package.</p>
+<p><strong>✗ AVOID</strong> creating a symbols package containing PDBs.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages">Creating symbol packages</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/nuget.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

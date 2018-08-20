@@ -1,0 +1,386 @@
+{
+  "homepages": [],
+  "source_base_path": "C:/projects/bookofdotnetoss",
+  "xrefmap": "xrefmap.yml",
+  "files": [
+    {
+      "type": "Resource",
+      "output": {
+        "resource": {
+          "relative_path": "index.json"
+        }
+      },
+      "is_incremental": false
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/breaking-changes.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/breaking-changes.html",
+          "hash": "yVMP8bYidzLLVM/Z3b2hJA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/cross-platform-targeting.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/cross-platform-targeting.html",
+          "hash": "mX2bl4uBHeQdhm/jDFl83A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/dependencies.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/dependencies.html",
+          "hash": "pUjamtTnknhw9XMKp5vFyQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/getting-started.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/getting-started.html",
+          "hash": "okViHFPTXPr4F/jXfnf8NQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/nuget-publishing.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/nuget-publishing.html",
+          "hash": "oj5/ziXFZ2JV+Fb6KGkFvg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/nuget.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/nuget.html",
+          "hash": "Qe106XTSR1z2WrPw+7yYww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/sourcelink.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/sourcelink.html",
+          "hash": "ZMjEIuQCReD8mbAMIOvi5w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/strong-naming.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/strong-naming.html",
+          "hash": "s4vH5k8iaTPpUmOrteZDbQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "docs/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "docs/toc.html",
+          "hash": "CxEKSeekL+E1kb4DpzkX3A=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/versioning.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/versioning.html",
+          "hash": "/TRkcfGKipgmhJWvPBaSGQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diagrams/diamond-dependency-conflict.xml",
+      "output": {
+        "resource": {
+          "relative_path": "images/diagrams/diamond-dependency-conflict.xml"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diagrams/diamond-dependency.xml",
+      "output": {
+        "resource": {
+          "relative_path": "images/diagrams/diamond-dependency.xml"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diagrams/nuget-package-multiple-assemblies.xml",
+      "output": {
+        "resource": {
+          "relative_path": "images/diagrams/nuget-package-multiple-assemblies.xml"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diagrams/nuget-prerelease-package.xml",
+      "output": {
+        "resource": {
+          "relative_path": "images/diagrams/nuget-prerelease-package.xml"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diagrams/shared-source-package.xml",
+      "output": {
+        "resource": {
+          "relative_path": "images/diagrams/shared-source-package.xml"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diamond-dependency-conflict.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/diamond-dependency-conflict.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/diamond-dependency.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/diamond-dependency.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/nuget-2fa.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nuget-2fa.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/nuget-logo.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nuget-logo.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/nuget-package-explorer-sourcelink.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nuget-package-explorer-sourcelink.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/nuget-package-multiple-assemblies.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nuget-package-multiple-assemblies.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/nuget-prerelease-package.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/nuget-prerelease-package.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/platforms-netstandard.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/platforms-netstandard.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/shared-source-package.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/shared-source-package.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/shared-source-project.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/shared-source-project.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/sourcelink-youtube-thumbnail.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/sourcelink-youtube-thumbnail.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/win-properties.png",
+      "output": {
+        "resource": {
+          "relative_path": "images/win-properties.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "index",
+      "source_relative_path": "index.md",
+      "output": {
+        ".html": {
+          "relative_path": "index.html",
+          "hash": "MlR02P2fEP+md6rkCSd8lQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "toc.html",
+          "hash": "w85ZsKIjPNhgMcfpS1MYPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    }
+  ],
+  "incremental_info": [
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
+        "incrementalPhase": "build"
+      },
+      "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build"
+        },
+        "TocDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build"
+        }
+      }
+    },
+    {
+      "status": {
+        "can_incremental": false,
+        "details": "Cannot support incremental post processing, the reason is: should not trace intermediate info.",
+        "incrementalPhase": "postProcessing"
+      },
+      "processors": {}
+    }
+  ],
+  "version_info": {},
+  "groups": [
+    {
+      "xrefmap": "xrefmap.yml"
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Dependencies | The Book of .NET OSS </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Dependencies | The Book of .NET OSS ">
+    <meta name="generator" content="docfx 2.38.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="dependencies">Dependencies</h1>
+
+<p>The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references not only allow you to quickly reuse and leverage already written functionality but also provide a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries from breaking your .NET library, and vice versa!</p>
+<h2 id="diamond-dependencies">Diamond dependencies</h2>
+<p>It is a common situation for a .NET project to have multiple versions of a package in its dependency tree. For example, an app depends on two NuGet packages, each of which depends on different versions of the same package. This is known as a diamond dependency.</p>
+<p><img src="../images/diamond-dependency.png" alt="Diamond dependency" title="Diamond dependency"></p>
+<p>At build time NuGet analyzes all the packages that a project depends on (including the dependencies of dependencies) and when multiple versions of a package is detected, rules are evaluated to pick one. Unifying packages is necessary because running side-by-side versions of an assembly is problematic in .NET.</p>
+<p>Most diamond dependencies are resolved without issue, however they can create issues in certain circumstances:</p>
+<ol>
+<li><strong>Conflicting NuGet package references</strong> prevent a version from being resolved during package restore.</li>
+<li><strong>Breaking changes between the versions</strong> causes bugs and exceptions at runtime.</li>
+<li><strong>The package assembly is strong named</strong>, the assembly version changed, and the app is running on the .NET Framework. Assembly binding redirects are required.</li>
+</ol>
+<p>It is impossible to know what packages will be used alongside your own, but you can reduce the likelihood of a diamond dependency causing your library to break by minimizing the number of packages you depend on.</p>
+<p><strong>✓ DO</strong> review your .NET library for unnecessary dependencies.</p>
+<h2 id="nuget-dependency-version-ranges">NuGet dependency version ranges</h2>
+<p>A package reference specifies the range of valid packages it allows. Typically, the package reference version in the <code>csproj</code> file is the minimum version and there is no maximum.</p>
+<pre><code class="lang-xml">&lt;!-- Accepts any version 1.0 and above. --&gt;
+&lt;PackageReference Include=&quot;ExamplePackage&quot; Version=&quot;1.0&quot; /&gt;
+</code></pre>
+<p>The rules that NuGet uses when resolving dependencies are <a href="https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution">complex</a>, but NuGet always attempts to find the lowest applicable version. NuGet prefers the lowest application version over using the highest available because the lowest will have the least compatibility issues.</p>
+<p>Because of NuGet's lowest application version rule, it is not necessary to place an upper version or exact range on package references to avoid getting the latest version. NuGet already tries to find the lowest, most compatible version for you.</p>
+<pre><code class="lang-xml">&lt;!-- Accepts 1.0 up to 1.x, but not 2.0 and higher. --&gt;
+&lt;PackageReference Include=&quot;ExamplePackage&quot; Version=&quot;[1.0,2.0)&quot; /&gt;
+
+&lt;!-- Accepts exactly 1.0. --&gt;
+&lt;PackageReference Include=&quot;ExamplePackage&quot; Version=&quot;[1.0]&quot; /&gt;
+</code></pre>
+<p>Upper version limits will cause NuGet to fail if there is a conflict, e.g. one library accepts exactly 1.0 while another library requires 2.0 or above. While breaking changes may have been introduced in version 2.0, a strict or upper limit version dependency guarantees an error.</p>
+<p><img src="../images/diamond-dependency-conflict.png" alt="Diamond dependency conflict" title="Diamond dependency conflict"></p>
+<p><strong>✗ DO NOT</strong> have NuGet package references with no minimum version.</p>
+<p><strong>✗ AVOID</strong> NuGet package references that demand an exact version.</p>
+<p><strong>✗ AVOID</strong> NuGet package references with a version upper limit.</p>
+<p><strong>More Information</strong></p>
+<ul>
+<li><a href="https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution">How NuGet resolves package dependencies</a></li>
+</ul>
+<h2 id="nuget-shared-source-packages">NuGet shared source packages</h2>
+<p>One way to reduce external NuGet package dependencies is to reference share source packages. A shared source package contains source code files that are included in a project when referenced. Because you are just including source code files that are compiled with the rest of your project there is no external dependency and chance of conflict.</p>
+<p>Shared source packages are great for including small pieces of functionality, e.g. a shared source package containing helper methods for making HTTP calls.</p>
+<p><img src="../images/shared-source-package.png" alt="Shared source package" title="Shared source package"></p>
+<p>Shared source packages can only be used by <code>PackageReference</code>, and should be a private reference to tell NuGet it is only used at development time and should not be exposed to anyone using your package.</p>
+<pre><code class="lang-xml">&lt;PackageReference Include=&quot;Microsoft.Extensions.Buffers.Testing.Sources&quot; PrivateAssets=&quot;All&quot; Version=&quot;1.0&quot; /&gt;
+</code></pre>
+<p><img src="../images/shared-source-project.png" alt="Shared source project" title="Shared source project"></p>
+<p><strong>✓ CONSIDER</strong> referencing shared source packages for small, internal pieces of functionality.</p>
+<p><strong>✓ CONSIDER</strong> making your package a shared source package if it provides small, internal pieces of functionality.</p>
+<p><strong>✓ DO</strong> reference shared source packages with <code>PrivateAssets=&quot;All&quot;</code>.</p>
+<p><strong>✗ AVOID</strong> shared-source package types in your public API.</p>
+<blockquote>
+<p>Shared-source types are compiled into the referencing assembly and can't be exchanged across assembly boundaries, e.g. a shared-source <code>IRepository</code> type in one project is a separate type from the same shared-source <code>IRepository</code> in another project.</p>
+</blockquote>
+<p><strong>More Information</strong></p>
+<ul>
+<li><p><a href="https://blog.nuget.org/20160126/nuget-contentFiles-demystified.html">NuGet ContentFiles Demystified</a></p>
+</li>
+<li><p><a href="https://medium.com/@attilah/source-code-only-nuget-packages-8f34a8fb4738">Source Code Only NuGet Packages</a></p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/dependencies.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
