@@ -1,6 +1,8 @@
 # The Book of .NET OSS
 
-The Book of .NET OSS is a living resource to help answer common technical questions from .NET open source project owners and maintainers.
+Answers to common technical questions from .NET open source project owners and maintainers.
+
+**[The Book of .NET OSS](https://jamesnk.github.io/BookOfDotNetOSS/)**
 
 ## How Can I Help?
 

@@ -1,5 +1,5 @@
 ---
-title: Welcome to DocFX website!
+title: Home
 documentType: index
 ---
 <div role="main" class="container body-content hide-when-search">
@@ -7,7 +7,7 @@ documentType: index
     <div class="col-md-12">
       <article class="content wrap">
         <h1 id="the-book-of-net-oss">The Book of .NET OSS</h1>
-        <p>A resource to help answer to common technical questions from .NET open source project owners and maintainers.</p>
+        <p>Answers to common technical questions from .NET open source project owners and maintainers.</p>
         <hr />
         <p>The goal of this website is to bring together the wisdom and best practices spread across discussions in GitHub, StackOverflow and Twitter into one central place, and to distill it down to a set of common recommendations. We want to help the .NET community to produce high quality, stable .NET libraries for all developers.</p>
         <h3 id="documentation"><strong><a href="docs/getting-started.md">Documentation</a></strong></h3>
