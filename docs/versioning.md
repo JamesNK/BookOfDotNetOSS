@@ -12,7 +12,7 @@ A .NET library has many ways to specify a version. These are the most important:
 
 ### NuGet Package Version
 
-The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to `package.config`/`*.csproj` when the packaged is used. This version number is what users will commonly see and to refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavior.
+The NuGet package version is what is displayed on nuget.org, the Visual Studio NuGet UI, and is written to `package.config`/`*.csproj` when the packaged is used. This version number is what users will commonly see and refer to when they think and talk about the version of a library they are using. The NuGet package version is used by NuGet and has no effect on runtime behavior.
 
 ```xml
 <PackageVersion>1.0.0-alpha1</PackageVersion>
@@ -28,7 +28,7 @@ Because the NuGet package version is the most visible version to developers, it 
 
 **✓ DO** include a pre-release suffix when releasing a test package.
 
-> Users must opt-in to getting pre-release packages so understand that the package is not complete.
+> Users must opt-in to getting pre-release packages so they will understand that the package is not complete.
 
 **More information**
 
@@ -43,17 +43,17 @@ The assembly version is what the CLR uses at runtime to select which version of 
 <AssemblyVersion>1.0.0.0</AssemblyVersion>
 ```
 
-By default, the Windows .NET Framework CLR demands an exact match when loading a strong named assembly, e.g. `Libary1, Version=1.0.0.0` was compiled with a reference to `Newtonsoft.Json, Version=11.0.0.0` and will only load that exactly version 11.0.0.0. To load a different version at runtime a binding redirect must be added to the .NET application's config file.
+By default, the Windows .NET Framework CLR demands an exact match when loading a strong named assembly, e.g. `Libary1, Version=1.0.0.0` was compiled with a reference to `Newtonsoft.Json, Version=11.0.0.0` and will only load that exact version 11.0.0.0. To load a different version at runtime, a binding redirect must be added to the .NET application's config file.
 
 Strong naming combined with assembly version is a controversial subject. While strong naming a library has a number of benefits, it often results in runtime exceptions that an assembly can't be found and [requires binding redirects](https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions) in `app.config`/`web.config` to be fixed. .NET Core assembly loading has been relaxed, and the .NET Core CLR will automatically load assemblies at runtime with a higher version.
 
 **✓ CONSIDER** only including a major version in the AssemblyVersion.
 
-> e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of `1.0.0.0`, while Library 2.0 has AssemblyVersion of `2.0.0.0`. The assembly version changing less often reduces binding redirects.
+> e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of `1.0.0.0`, while Library 2.0 has AssemblyVersion of `2.0.0.0`. When the assembly version changes less often, it reduces binding redirects.
 
 **✗ DO NOT** have a fixed AssemblyVersion.
 
-> While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed, and applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.
+> While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.
 
 **More information**
 
@@ -70,13 +70,13 @@ The assembly file version is used to display a file version in Windows and has n
 
 ![Windows Explorer](../images/win-properties.png "Windows Explorer")
 
-**✓ CONSIDER** including the a continuous integration build number as AssemblyFileVersion revision.
+**✓ CONSIDER** including a continuous integration build number as AssemblyFileVersion revision.
 
 > e.g. you are building version 1.0.0 of your project, and the continuous integration build number is 99 so your AssemblyFileVersion is 1.0.0.99.
 
 ### Assembly Informational Version
 
-The assembly informational version is used to record additional version information and has no effect on runtime behavior. Setting this version is optional. If you are using SourceLink this version will automatically be included on build to contain the NuGet package version plus a source control version, e.g. the git commit hash the assembly was built from. Read more about SourceLink [here](./sourcelink.md).
+The assembly informational version is used to record additional version information and has no effect on runtime behavior. Setting this version is optional. If you are using SourceLink, this version will automatically be included on build to contain the NuGet package version plus a source control version, e.g. the git commit hash the assembly was built from. Read more about SourceLink [here](./sourcelink.md).
 
 ```xml
 <AssemblyInformationalVersion>The quick brown fox jumped over the lazy dog.</AssemblyInformationalVersion>
