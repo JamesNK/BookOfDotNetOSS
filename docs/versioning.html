@@ -94,7 +94,7 @@
 <p><strong>✓ DO</strong> use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.</p>
 <p><strong>✓ DO</strong> include a pre-release suffix when releasing a test package.</p>
 <blockquote>
-<p>Users must opt-in to getting pre-release packages so as to understand that the package is not complete.</p>
+<p>Users must opt-in to getting pre-release packages so they will understand that the package is not complete.</p>
 </blockquote>
 <p><strong>More information</strong></p>
 <ul>
@@ -109,11 +109,11 @@
 <p>Strong naming combined with assembly version is a controversial subject. While strong naming a library has a number of benefits, it often results in runtime exceptions that an assembly can't be found and <a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions">requires binding redirects</a> in <code>app.config</code>/<code>web.config</code> to be fixed. .NET Core assembly loading has been relaxed, and the .NET Core CLR will automatically load assemblies at runtime with a higher version.</p>
 <p><strong>✓ CONSIDER</strong> only including a major version in the AssemblyVersion.</p>
 <blockquote>
-<p>e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of <code>1.0.0.0</code>, while Library 2.0 has AssemblyVersion of <code>2.0.0.0</code>. When the assembly version change less often, it reduces binding redirects.</p>
+<p>e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of <code>1.0.0.0</code>, while Library 2.0 has AssemblyVersion of <code>2.0.0.0</code>. When the assembly version changes less often, it reduces binding redirects.</p>
 </blockquote>
 <p><strong>✗ DO NOT</strong> have a fixed AssemblyVersion.</p>
 <blockquote>
-<p>When a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. It also means that applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
+<p>While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
 </blockquote>
 <p><strong>More information</strong></p>
 <ul>
