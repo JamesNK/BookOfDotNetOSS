@@ -1,6 +1,8 @@
-# Getting Started
+# Get Started
 
-Some first steps to creating and publishing a .NET OSS project:
+Your first steps to creating and publishing a .NET OSS project. Experienced OSS .NET developers can jump directly to the [full documentation](./introduction.md).
+
+## Setup
 
 1. Download the tools useful for developing a .NET library:
 
@@ -12,15 +14,27 @@ Some first steps to creating and publishing a .NET OSS project:
 
 2. Create a [GitHub](https://github.com/) repository and choose an [OSS license](https://choosealicense.com/).
 
-3. Plan early for your library to be [cross-platform](./cross-platform-targeting.md). .NET runs in many places, the more people you can reach the better.
+## Design and development
 
-4. Manage what [dependencies](./dependencies.md) your library will reference. There is a big eco-system of packages to use but dependencies are a common source of friction.
+1. Plan early for your library to be [cross-platform](./cross-platform-targeting.md). .NET runs in many places, the more people you can reach the better.
 
-5. Decide on [strong naming](./strong-naming.md) your library.
+2. Manage what [dependencies](./dependencies.md) your library will reference. There is a big eco-system of packages to use but dependencies are a common source of friction.
 
-6. [Create a NuGet package](./nuget.md) (with [SourceLink enabled](./sourcelink.md)) and publish to nuget.org.
+3. Decide on [strong naming](./strong-naming.md) your library.
 
-7. [Iterate and version](./versioning.md) your library while minimizing disruption from [breaking changes](./breaking-changes.md).
+## Packaging and publishing
+
+1. [Create a NuGet package](./nuget.md). NuGet is the primary way developers use open source libraries.
+
+2. Enable [SourceLink](./sourcelink.md) with your package so developers can debug into it.
+
+3. [Publish to NuGet.org](./nuget-publishing.md).
+
+## Future development
+
+1. [Iterate and version](./versioning.md) your library.
+
+2. Learn about [breaking changes](./breaking-changes.md). Do your best to minimize disruption to your users while fixing bugs and adding features.
 
 **✓ DO** host your project on [GitHub](https://github.com/) or another online distributed source control service.
 

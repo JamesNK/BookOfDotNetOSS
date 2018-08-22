@@ -1,5 +1,5 @@
-- name: Getting started
-  href: getting-started.md
+- name: Introduction
+  href: introduction.md
 - name: Cross-platform targeting
   href: cross-platform-targeting.md
 - name: Dependencies
