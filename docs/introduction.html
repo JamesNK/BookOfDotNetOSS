@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Getting Started | The Book of .NET OSS </title>
+    <title>Introduction | The Book of .NET OSS </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Getting Started | The Book of .NET OSS ">
+    <meta name="title" content="Introduction | The Book of .NET OSS ">
     <meta name="generator" content="docfx 2.38.1.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -77,42 +77,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="getting-started">Getting Started</h1>
+<h1 id="introduction">Introduction</h1>
 
-<p>Some first steps to creating and publishing a .NET OSS project:</p>
-<ol>
-<li><p>Download the tools useful for developing a .NET library:</p>
-<ul>
-<li><p><a href="https://www.microsoft.com/net/download">.NET Core SDK</a> contains everything you need to compile a .NET library and NuGet package.</p>
-</li>
-<li><p><a href="https://visualstudio.microsoft.com/downloads/">Visual Studio Community</a> is a fully featured IDE for Windows that is free for OSS projects. <a href="https://code.visualstudio.com/Download">Visual Studio Code</a> is a free cross-platform IDE.</p>
-</li>
-<li><p><a href="https://github.com/NuGetPackageExplorer/NuGetPackageExplorer#readme">NuGet Package Explorer</a> lets you view NuGet package metadata and content.</p>
-</li>
-</ul>
-</li>
-<li><p>Create a <a href="https://github.com/">GitHub</a> repository and choose an <a href="https://choosealicense.com/">OSS license</a>.</p>
-</li>
-<li><p>Plan early for your library to be <a href="cross-platform-targeting.html">cross-platform</a>. .NET runs in many places, the more people you can reach the better.</p>
-</li>
-<li><p>Manage what <a href="dependencies.html">dependencies</a> your library will reference. There is a big eco-system of packages to use but dependencies are a common source of friction.</p>
-</li>
-<li><p>Decide on <a href="strong-naming.html">strong naming</a> your library.</p>
-</li>
-<li><p><a href="nuget.html">Create a NuGet package</a> (with <a href="sourcelink.html">SourceLink enabled</a>) and publish to nuget.org.</p>
-</li>
-<li><p><a href="versioning.html">Iterate and version</a> your library while minimizing disruption from <a href="breaking-changes.html">breaking changes</a>.</p>
-</li>
-</ol>
-<p><strong>✓ DO</strong> host your project on <a href="https://github.com/">GitHub</a> or another online distributed source control service.</p>
+<p>This documention covers common technical questions from developers creating .NET OSS libraries. If you are brand new to .NET you should visit <a href="https://www.dot.net">dot.net</a> for an introduction to .NET development.</p>
+<h2 id="recommendations">Recommendations</h2>
+<p>The Book of .NET OSS provides a brief description of each topic to introduce why it is important, and then gives a list of recommendations for your OSS project using <strong>Do</strong>, <strong>Consider</strong>, <strong>Avoid</strong> and <strong>Do not</strong>. The wording of each recommendation indicates how strongly it should be followed. For example a <strong>Do</strong> recommendation is one that should almost always be followed:</p>
 <p><strong>✓ DO</strong> choose an <a href="https://choosealicense.com/">OSS license</a>.</p>
-<blockquote>
-<p>A project without a license defaults to <a href="https://choosealicense.com/no-permission/">exclusive copyright</a>, making it impossible for other people to use.</p>
-</blockquote>
-<p><strong>More Information</strong></p>
-<ul>
-<li><a href="https://choosealicense.com/">Choose an open source license</a></li>
-</ul>
+<p>On the other hand <strong>Consider</strong> recommendations should generally be followed, but there are legitimate exceptions to the rule and you should not feel bad about not following the guidance:</p>
+<p><strong>✓ CONSIDER</strong> using SemVer to version your NuGet package</p>
+<p><strong>Do not</strong> indicates something you should almost never do:</p>
+<p><strong>✗ DO NOT</strong> publish strong-named and non-strong-named versions of your project, e.g. <code>Contoso.Api</code> and <code>Contoso.Api.StrongNamed</code>.</p>
+<p>And finally less strong, <strong>avoid</strong> recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:</p>
+<p><strong>✗ AVOID</strong> NuGet package references that demand an exact version.</p>
 </article>
           </div>
           
@@ -121,7 +97,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/getting-started.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/JamesNK/BookOfDotNetOSS/blob/master/docs/introduction.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -50,11 +50,23 @@
     },
     {
       "type": "Conceptual",
-      "source_relative_path": "docs/getting-started.md",
+      "source_relative_path": "docs/get-started.md",
       "output": {
         ".html": {
-          "relative_path": "docs/getting-started.html",
-          "hash": "okViHFPTXPr4F/jXfnf8NQ=="
+          "relative_path": "docs/get-started.html",
+          "hash": "KLM7eeNIINT0XbgPMT/k4g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "docs/introduction.md",
+      "output": {
+        ".html": {
+          "relative_path": "docs/introduction.html",
+          "hash": "DR4DAfkFkdUry982bXPpFQ=="
         }
       },
       "is_incremental": false,
@@ -114,7 +126,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/toc.html",
-          "hash": "CxEKSeekL+E1kb4DpzkX3A=="
+          "hash": "6jCSnaQCgwiFM8xlffjC2Q=="
         }
       },
       "is_incremental": false,
@@ -325,7 +337,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "H5tHuQ8vbmrj8Ys7aC+h7w=="
+          "hash": "ZWRysWYnN2FtafrohM3DCw=="
         }
       },
       "is_incremental": false,
@@ -337,7 +349,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "w85ZsKIjPNhgMcfpS1MYPw=="
+          "hash": "MicrM3ZgZApOzXT9eH9Pfg=="
         }
       },
       "is_incremental": false,
