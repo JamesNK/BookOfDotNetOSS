@@ -16,8 +16,8 @@ You can also combine these two approaches. For example, a `netstandard2.0` targe
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <!-- This project will output netstandard2.0 and netstandard1.0 assemblies -->
-    <TargetFrameworks>netstandard2.0;netstandard1.0</TargetFrameworks>
+    <!-- This project will output netstandard2.0 and net471 assemblies -->
+    <TargetFrameworks>netstandard2.0;net471</TargetFrameworks>
   </PropertyGroup>
 </Project>
 ```

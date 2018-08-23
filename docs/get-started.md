@@ -26,7 +26,7 @@ Your first steps to creating and publishing a .NET OSS project. Experienced OSS 
 
 1. [Create a NuGet package](./nuget.md). NuGet is the primary way developers use open source libraries.
 
-2. Enable [SourceLink](./sourcelink.md) with your package so developers can debug into it.
+2. Enable [SourceLink debugging](./sourcelink.md) for your package.
 
 3. [Publish to NuGet.org](./nuget-publishing.md).
 

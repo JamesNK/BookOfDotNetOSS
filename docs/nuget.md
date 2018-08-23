@@ -45,8 +45,7 @@ The older way of creating a NuGet package is with a nuspec file and the `nuget.e
 **More Information**
 
 * [Creating NuGet packages](https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package)
-* [Migrate from packages.config to PackageReference
-](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)
+* [Migrate from packages.config to PackageReference](https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference)
 
 ## Package Dependences
 
