@@ -1,8 +1,8 @@
 ﻿# Publishing a NuGet Package
 
-In addition to NuGet.org, NuGet packages can be published to and consumed from several places:
+NuGet packages are published and consumed from package repositories. While NuGet.org is the most widely known and used repository, there are many places to publish a NuGet package:
 
-* **[NuGet.org](https://www.nuget.org/)** is the primary online repository for NuGet packages. All packages on NuGet.org are publicly available to everyone. By default, Visual Studio has nuget.org as a package source and for many developers this is the only package repository they will interact with. NuGet.org is the best place to publish stable packages and pre-release packages that you want community feedback on.
+* **[NuGet.org](https://www.nuget.org/)** is the primary online repository for NuGet packages. All packages on NuGet.org are publicly available to everyone. By default, Visual Studio has NuGet.org as a package source and for many developers this is the only package repository they will interact with. NuGet.org is the best place to publish stable packages and pre-release packages that you want community feedback on.
 
 * **[MyGet](https://myget.org/)** repository service supports free custom package feeds for open source projects. A MyGet public custom feed is an ideal place to publish pre-release packages created by your CI service. MyGet also provides private feeds commercially.
 
