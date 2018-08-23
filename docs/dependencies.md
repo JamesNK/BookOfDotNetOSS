@@ -83,6 +83,6 @@ Shared source packages can only be used by `PackageReference`, and should be a p
 
 **More Information**
 
-* [NuGet ContentFiles Demystified](https://blog.nuget.org/20160126/nuget-contentFiles-demystified.html)
+* [NuGet - Including content files](https://docs.microsoft.com/en-us/nuget/reference/nuspec#including-content-files)
 
 * [Source Code Only NuGet Packages](https://medium.com/@attilah/source-code-only-nuget-packages-8f34a8fb4738)

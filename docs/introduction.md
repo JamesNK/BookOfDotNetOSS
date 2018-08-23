@@ -1,6 +1,6 @@
 # Introduction
 
-This documention covers common technical questions from developers creating .NET OSS libraries. If you are brand new to .NET you should visit [dot.net](https://www.dot.net) for an introduction to .NET development.
+This documention covers common technical questions from developers creating .NET OSS libraries.
 
 ## Recommendations
 
