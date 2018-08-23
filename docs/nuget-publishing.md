@@ -1,6 +1,6 @@
 ﻿# Publishing a NuGet Package
 
-NuGet packages are published and consumed from package repositories. While NuGet.org is the most widely known and used repository, there are many places to publish a NuGet package:
+NuGet packages are published and consumed from package repositories. While NuGet.org is the most widely known and used repository, there are many places to publish NuGet packages:
 
 * **[NuGet.org](https://www.nuget.org/)** is the primary online repository for NuGet packages. All packages on NuGet.org are publicly available to everyone. By default, Visual Studio has NuGet.org as a package source and for many developers this is the only package repository they will interact with. NuGet.org is the best place to publish stable packages and pre-release packages that you want community feedback on.
 
@@ -23,6 +23,7 @@ NuGet packages are published and consumed from package repositories. While NuGet
 * [Deleting packages on NuGet.org](https://docs.microsoft.com/en-us/nuget/policies/deleting-packages)
 * [MyGet open source offer](https://www.myget.org/opensource)
 * [NuGet local feeds](https://docs.microsoft.com/en-us/nuget/hosting-packages/local-feeds)
+* [Configure NuGet package sources](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file#package-source-sections)
 
 ## NuGet.org Security
 
