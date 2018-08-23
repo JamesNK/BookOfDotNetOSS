@@ -6,7 +6,7 @@ In addition to NuGet.org, NuGet packages can be published to and consumed from s
 
 * **[MyGet](https://myget.org/)** repository service supports free custom package feeds for open source projects. A MyGet public custom feed is an ideal place to publish pre-release packages created by your CI service. MyGet also provides private feeds commercially.
 
-* A **local feed** allows you to treat a folder like a package repository. To use a local feed add the folder path as a package source and any `*.nupkg` files in the folder are accessible by NuGet. A local feed is useful for testing a NuGet package prior to publishing it to NuGet.org.
+* A **local feed** allows you to treat a folder like a package repository and makes the `*.nupkg` files in the folder accessible by NuGet. A local feed is useful for testing a NuGet package prior to publishing it to NuGet.org.
 
 > [!NOTE]
 > Nuget.org does not allow a package to be deleted once it is uploaded. A package can be unlisted so that it is not publicly visible in the UI but the `*.nupkg` can still be downloaded on restore. Also, nuget.org does not allow duplicate package versions. To correct a NuGet package with an error you have to unlist the incorrect package, increment the version number and publish a new version of the package.
