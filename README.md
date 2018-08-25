@@ -2,7 +2,7 @@
 
 Answers to common technical questions from .NET open source project owners and maintainers.
 
-**[The Book of .NET OSS](https://jamesnk.github.io/BookOfDotNetOSS/)**
+**[The Book of .NET OSS website](https://jamesnk.github.io/BookOfDotNetOSS/)**
 
 ## How Can I Help?
 
