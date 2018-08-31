@@ -1,6 +1,6 @@
 ﻿# Dependencies
 
-The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references not only allow you to quickly reuse and leverage already written functionality but also provide a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries from breaking your .NET library, and vice versa!
+The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references allow you to quickly reuse and leverage already written functionality, but they are a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries from breaking your .NET library, and vice versa!
 
 ## Diamond dependencies
 

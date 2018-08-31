@@ -1,10 +1,10 @@
 # Introduction
 
-This documention provides recommendations for developers to create strong and stable .NET OSS libraries. The focus of the documentation is not on *how* to do something - creating a NuGet package for example - but *what* you should do when creating a NuGet package and *why*. More information is provided after each section via links to detailed documentation and references.
+The Book of .NET OSS provides recommendations for developers to create strong and stable .NET OSS libraries. This documentation focuses on *what* and the *why* when building a .NET library, not *how*. After each topic there are links to more information, usually to detailed documentation and references.
 
 ## Recommendations
 
-The Book of .NET OSS provides a brief description of each topic to introduce why it is important, and then gives a list of recommendations for your OSS project using **Do**, **Consider**, **Avoid** and **Do not**. The wording of each recommendation indicates how strongly it should be followed. For example a **Do** recommendation is one that should almost always be followed:
+With each topic there is a list of recommendations for your OSS project using **Do**, **Consider**, **Avoid** and **Do not**. The wording of each recommendation indicates how strongly it should be followed. For example a **Do** recommendation is one that should almost always be followed:
 
 **✔️ DO** choose an [OSS license](https://choosealicense.com/).
 
