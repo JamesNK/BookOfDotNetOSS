@@ -12,6 +12,6 @@ You can use [NuGet Package Explorer](https://github.com/NuGetPackageExplorer/NuG
 
 ![SourceLink in NuGet Package Explorer](../images/nuget-package-explorer-sourcelink.png "SourceLink in NuGet Package Explorer")
 
-**✓ CONSIDER** using SourceLink to add source control metadata to your assemblies and NuGet package.
+**✔️ CONSIDER** using SourceLink to add source control metadata to your assemblies and NuGet package.
 
-**✓ CONSIDER** including PDB files in the NuGet package.
+**✔️ CONSIDER** including PDB files in the NuGet package.

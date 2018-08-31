@@ -36,9 +36,9 @@ Your first steps to creating and publishing a .NET OSS project. Experienced OSS 
 
 2. Learn about [breaking changes](./breaking-changes.md). Do your best to minimize disruption to your users while fixing bugs and adding features.
 
-**✓ DO** host your project on [GitHub](https://github.com/) or another online distributed source control service.
+**✔️ DO** host your project on [GitHub](https://github.com/) or another online distributed source control service.
 
-**✓ DO** choose an [OSS license](https://choosealicense.com/).
+**✔️ DO** choose an [OSS license](https://choosealicense.com/).
 
 > A project without a license defaults to [exclusive copyright](https://choosealicense.com/no-permission/), making it impossible for other people to use.
 

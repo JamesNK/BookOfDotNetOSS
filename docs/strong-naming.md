@@ -34,9 +34,9 @@ The benefits of strong naming are:
 
 Strong-naming an assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.
 
-**✓ CONSIDER** strong-naming your project assemblies.
+**✔️ CONSIDER** strong-naming your project assemblies.
 
-**✓ CONSIDER** checking in the key used to strong-name into your source control system.
+**✔️ CONSIDER** checking in the key used to strong-name into your source control system.
 
 > A publicly available key lets developers modify and recompile your library source code with the same key.
 
@@ -45,9 +45,9 @@ Strong-naming an assembly ensures that most people can use it, and .NET Core rem
 >
 > When a cryptographic identity is desired, [Authenticode](https://docs.microsoft.com/en-us/windows-hardware/drivers/install/authenticode) and [NuGet Package Signing](https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package) provide more functionality.
 
-**✓ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
+**✔️ CONSIDER** incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.
 
-**✗ DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
+**❌ DO NOT** publish strong-named and non-strong-named versions of your project, e.g. `Contoso.Api` and `Contoso.Api.StrongNamed`.
 
 > If an application ends up depending on both packages the developer will encounter type name conflicts.
 
