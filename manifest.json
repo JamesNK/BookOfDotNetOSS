@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/breaking-changes.html",
-          "hash": "qFC7bBEu6kZXLdVchR+h5Q=="
+          "hash": "Uieurxq2UoylrtgHKbs5nQ=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/cross-platform-targeting.html",
-          "hash": "UTwNfyC+oBCKHSxJxJuOYg=="
+          "hash": "LapeNKPT65RbApw0zV6pUA=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/dependencies.html",
-          "hash": "OeBbmAt20S6ozgWvhhCMtA=="
+          "hash": "x05WnX3Kv8PpDlbhjEIayA=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/get-started.html",
-          "hash": "fGumxrJDTNxd++A1gaNo5g=="
+          "hash": "9XOGmCOi7g74CgKfuXjHAg=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/introduction.html",
-          "hash": "FC8hc5uBld5zmHSkm0H/ww=="
+          "hash": "jnB6JgPmyQVeOcE53Z8OxA=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/nuget-publishing.html",
-          "hash": "O2fn2qz1FE5MY4gi4VxCFg=="
+          "hash": "qK8CYDQ2gHnGX8UqW8uckQ=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/nuget.html",
-          "hash": "K7S1NQPMA1GdBJtVv1OKbA=="
+          "hash": "1FYfeSJdh4qfm7M2w5ck0g=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/sourcelink.html",
-          "hash": "RDWxOUY27tbfgGtT2kU86Q=="
+          "hash": "IG8PvSQvpywzJe+p1p0IUg=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/strong-naming.html",
-          "hash": "O8p5Ye+rYYguj7DpmKIX9Q=="
+          "hash": "9RG7M64mBAiD/1umqN7PmQ=="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/versioning.html",
-          "hash": "0HNv7OPZ3XVDibA/q4D/VA=="
+          "hash": "m/zqAchyN2HsOVDmxlr7Bg=="
         }
       },
       "is_incremental": false,
@@ -216,6 +216,28 @@
       "output": {
         "resource": {
           "relative_path": "images/diamond-dependency.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/favicon.ico",
+      "output": {
+        "resource": {
+          "relative_path": "images/favicon.ico"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "images/logo.svg",
+      "output": {
+        "resource": {
+          "relative_path": "images/logo.svg"
         }
       },
       "is_incremental": false,
@@ -337,7 +359,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "EEJjtajUWUHt1s/KkUZChQ=="
+          "hash": "F6qzSqwgW77Y+LwGoysOsA=="
         }
       },
       "is_incremental": false,

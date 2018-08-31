@@ -10,7 +10,7 @@
     <meta name="title" content="Strong Naming | The Book of .NET OSS ">
     <meta name="generator" content="docfx 2.38.1.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -103,8 +103,8 @@
 <li>The assembly can be used by plug-in architectures that require strong naming</li>
 </ol>
 <h2 id="what-should-i-do">What should I do?</h2>
-<p>Strong-naming an assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.</p>
-<p><strong>✔️ CONSIDER</strong> strong-naming your project assemblies.</p>
+<p>Applications don't need to strong name most of the time, but strong naming is recommended for .NET OSS libraries. Strong-naming a library's assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.</p>
+<p><strong>✔️ CONSIDER</strong> strong-naming your library's assemblies.</p>
 <p><strong>✔️ CONSIDER</strong> checking in the key used to strong-name into your source control system.</p>
 <blockquote>
 <p>A publicly available key lets developers modify and recompile your library source code with the same key.</p>

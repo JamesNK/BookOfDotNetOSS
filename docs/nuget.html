@@ -10,7 +10,7 @@
     <meta name="title" content="NuGet | The Book of .NET OSS ">
     <meta name="generator" content="docfx 2.38.1.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -93,20 +93,7 @@
   &lt;/PropertyGroup&gt;
 &lt;/Project&gt;
 </code></pre>
-<p>The older way of creating a NuGet package is with a nuspec file and the <code>nuget.exe</code> command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.</p>
-<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;package xmlns=&quot;http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd&quot;&gt;
-    &lt;metadata&gt;
-        &lt;id&gt;Contoso.Api&lt;/id&gt;
-        &lt;version&gt;1.1.0&lt;/version&gt;
-        &lt;description&gt;&lt;/description&gt;
-        &lt;authors&gt;John Doe&lt;/authors&gt;
-    &lt;/metadata&gt;
-    &lt;files&gt;
-        &lt;file src=&quot;bin\Release\netstandard2.0\*.dll&quot; target=&quot;netstandard2.0&quot; /&gt;
-    &lt;/files&gt;
-&lt;/package&gt;
-</code></pre>
+<p>The older way of creating a NuGet package is with a <code>*.nuspec</code> file and the <code>nuget.exe</code> command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.</p>
 <p><strong>✔️ CONSIDER</strong> using a modern .NET Class Library to create a NuGet package if possible.</p>
 <p><strong>✔️ CONSIDER</strong> setting up SourceLink to add source control metadata to your assemblies and NuGet package.</p>
 <p><strong>More Information</strong></p>
@@ -115,9 +102,9 @@
 <li><a href="https://docs.microsoft.com/en-us/nuget/reference/migrate-packages-config-to-package-reference">Migrate from packages.config to PackageReference</a></li>
 </ul>
 <h2 id="package-dependences">Package Dependences</h2>
-<p>NuGet package dependencies are covered <a href="dependencies.html">here</a>.</p>
+<p>NuGet package dependencies are covered in detail <a href="dependencies.html">here</a>.</p>
 <h2 id="important-nuget-package-metadata">Important NuGet Package Metadata</h2>
-<p>A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:</p>
+<p>A NuGet package has a lot of associated metadata. This is the metadata that every public OSS project should provide:</p>
 <table>
 <thead>
 <tr>
@@ -191,7 +178,7 @@
 </code></pre>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.</p>
+<p>A stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.</p>
 </div>
 <p><img src="../images/nuget-prerelease-package.png" alt="Nuget pre-release package dependency" title="Nuget pre-release package dependency"></p>
 <p><strong>✔️ DO</strong> publish a pre-release package when testing, previewing, or experimenting.</p>

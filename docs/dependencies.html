@@ -10,7 +10,7 @@
     <meta name="title" content="Dependencies | The Book of .NET OSS ">
     <meta name="generator" content="docfx 2.38.1.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="shortcut icon" href="../images/favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
@@ -35,7 +35,7 @@
               </button>
               
               <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+                <img id="logo" class="svg" src="../images/logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,7 +79,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="dependencies">Dependencies</h1>
 
-<p>The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references not only allow you to quickly reuse and leverage already written functionality but also provide a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries from breaking your .NET library, and vice versa!</p>
+<p>The primary way of adding dependencies to a .NET library is referencing NuGet packages. NuGet package references allow you to quickly reuse and leverage already written functionality, but they are a common source of friction for .NET developers. Correctly managing dependencies is important to prevent changes in other .NET libraries from breaking your .NET library, and vice versa!</p>
 <h2 id="diamond-dependencies">Diamond dependencies</h2>
 <p>It is a common situation for a .NET project to have multiple versions of a package in its dependency tree. For example, an app depends on two NuGet packages, each of which depends on different versions of the same package. This is known as a diamond dependency.</p>
 <p><img src="../images/diamond-dependency.png" alt="Diamond dependency" title="Diamond dependency"></p>
