@@ -18,7 +18,7 @@ Most diamond dependencies are resolved without issue, however they can create is
 
 It is impossible to know what packages will be used alongside your own, but you can reduce the likelihood of a diamond dependency causing your library to break by minimizing the number of packages you depend on.
 
-**✓ DO** review your .NET library for unnecessary dependencies.
+**✔️ DO** review your .NET library for unnecessary dependencies.
 
 ## NuGet dependency version ranges
 
@@ -45,11 +45,11 @@ Upper version limits will cause NuGet to fail if there is a conflict, e.g. one l
 
 ![Diamond dependency conflict](../images/diamond-dependency-conflict.png "Diamond dependency conflict")
 
-**✗ DO NOT** have NuGet package references with no minimum version.
+**❌ DO NOT** have NuGet package references with no minimum version.
 
-**✗ AVOID** NuGet package references that demand an exact version.
+**❌ AVOID** NuGet package references that demand an exact version.
 
-**✗ AVOID** NuGet package references with a version upper limit.
+**❌ AVOID** NuGet package references with a version upper limit.
 
 **More Information**
 
@@ -71,13 +71,13 @@ Shared source packages can only be used by `PackageReference`, and should be a p
 
 ![Shared source project](../images/shared-source-project.png "Shared source project")
 
-**✓ CONSIDER** referencing shared source packages for small, internal pieces of functionality.
+**✔️ CONSIDER** referencing shared source packages for small, internal pieces of functionality.
 
-**✓ CONSIDER** making your package a shared source package if it provides small, internal pieces of functionality.
+**✔️ CONSIDER** making your package a shared source package if it provides small, internal pieces of functionality.
 
-**✓ DO** reference shared source packages with `PrivateAssets="All"`.
+**✔️ DO** reference shared source packages with `PrivateAssets="All"`.
 
-**✗ AVOID** shared-source package types in your public API.
+**❌ AVOID** shared-source package types in your public API.
 
 > Shared-source types are compiled into the referencing assembly and can't be exchanged across assembly boundaries, e.g. a shared-source `IRepository` type in one project is a separate type from the same shared-source `IRepository` in another project.
 

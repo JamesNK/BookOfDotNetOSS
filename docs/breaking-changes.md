@@ -14,9 +14,9 @@ How a project is used by the .NET community changes the effect of breaking chang
 
   Because a high-level library is likely to be directly referenced in the end user application, in the event of breaking changes the developer can choose to not update to the latest version, or can modify their application to work with the breaking change.
 
-**✓ DO** what you can to minimise breaking changes when developing a low-level .NET library.
+**✔️ DO** what you can to minimise breaking changes when developing a low-level .NET library.
 
-**✓ CONSIDER** publishing a major rewrite of a library as a new NuGet package.
+**✔️ CONSIDER** publishing a major rewrite of a library as a new NuGet package.
 
 ## Types of Breaking Changes
 
@@ -39,7 +39,7 @@ Because a source breaking change is only harmful when the developer recompiles t
 
 Behavior changes are the most common breaking change: almost any change in behavior could break someone. Even a bug fix can qualify if users relied on the previously broken behavior.
 
-**✓ CONSIDER** leaving new features off by default if they affect existing users, and let developers opt-in to the feature with a setting.
+**✔️ CONSIDER** leaving new features off by default if they affect existing users, and let developers opt-in to the feature with a setting.
 
 ### Binary Breaking Change
 
@@ -47,15 +47,15 @@ A binary breaking change happens when you change the public API of a library so 
 
 A binary breaking change can also break an **entire assembly**. Renaming an assembly in `AssemblyNameAttribute`, adding, removing or changing an assembly's strong naming key changes the assembly identity, and all compiled code that uses it will fail.
 
-**✗ DO NOT** change an assembly name.
+**❌ DO NOT** change an assembly name.
 
-**✗ DO NOT** add, remove or change the strong naming key.
+**❌ DO NOT** add, remove or change the strong naming key.
 
-**✓ CONSIDER** using abstract base classes instead of interfaces.
+**✔️ CONSIDER** using abstract base classes instead of interfaces.
 
 > Adding anything to an interface will cause existing types that implement it to fail. An abstract base class allows you to add a default virtual implementation.
 
-**✓ CONSIDER** placing the `ObsoleteAttribute` on types and members that you intend to remove with instructions for fixing their code to no longer use the obsolete API.
+**✔️ CONSIDER** placing the `ObsoleteAttribute` on types and members that you intend to remove with instructions for fixing their code to no longer use the obsolete API.
 
 > Code that calls types and methods with the `ObsoleteAttribute` will generate a build warning with the message supplied to the attribute. The warnings give people who use the obsolete API surface time to migrate so that when the obsolete API is removed, most are no longer be using it.
 

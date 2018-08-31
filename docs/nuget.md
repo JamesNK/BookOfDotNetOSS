@@ -38,9 +38,9 @@ The older way of creating a NuGet package is with a nuspec file and the `nuget.e
 </package>
 ```
 
-**✓ CONSIDER** using a modern .NET Class Library to create a NuGet package if possible.
+**✔️ CONSIDER** using a modern .NET Class Library to create a NuGet package if possible.
 
-**✓ CONSIDER** setting up SourceLink to add source control metadata to your assemblies and NuGet package.
+**✔️ CONSIDER** setting up SourceLink to add source control metadata to your assemblies and NuGet package.
 
 **More Information**
 
@@ -67,15 +67,15 @@ A NuGet package has a lot of associated metadata. This is the metadata that ever
 | PackageProjectUrl                | projectUrl               | A URL for the project homepage or source repository.             |
 | PackageLicenseUrl                | licenseUrl               | A URL to the project license. Can be the URL to the `LICENSE` file in source control.             |
 
-**✓ CONSIDER** choosing a NuGet package name with a prefix that meets NuGet's prefix reservation [criteria](https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation).
+**✔️ CONSIDER** choosing a NuGet package name with a prefix that meets NuGet's prefix reservation [criteria](https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation).
 
-**✓ CONSIDER** using the `LICENSE` file in source control as the `LicenseUrl`, e.g. https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
+**✔️ CONSIDER** using the `LICENSE` file in source control as the `LicenseUrl`, e.g. https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md
 
-**✓ DO** use a HTTPS href to your package icon.
+**✔️ DO** use a HTTPS href to your package icon.
 
 > Sites like nuget.org run with HTTPS enabled and displaying a non-HTTPS image will create a mixed content warning.
 
-**✓ DO** use a package icon image that is 64x64 and has a transparent background for best viewing results.
+**✔️ DO** use a package icon image that is 64x64 and has a transparent background for best viewing results.
 
 **More Information**
 
@@ -94,9 +94,9 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 
 ![Nuget pre-release package dependency](../images/nuget-prerelease-package.png "Nuget pre-release package dependency")
 
-**✓ DO** publish a pre-release package when testing, previewing, or experimenting.
+**✔️ DO** publish a pre-release package when testing, previewing, or experimenting.
 
-**✓ DO** publish a stable package when it is ready so other stable packages can reference it.
+**✔️ DO** publish a stable package when it is ready so other stable packages can reference it.
 
 **More Information**
 
@@ -108,9 +108,9 @@ NuGet supports generating a separate symbol package containing debug PDB files a
 
 Currently the main public host for symbols - [SymbolSource](http://www.symbolsource.org/) - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not generally useful.
 
-**✓ CONSIDER** embedding PDBs in the main NuGet package.
+**✔️ CONSIDER** embedding PDBs in the main NuGet package.
 
-**✗ AVOID** creating a symbols package containing PDBs.
+**❌ AVOID** creating a symbols package containing PDBs.
 
 **More Information**
 
