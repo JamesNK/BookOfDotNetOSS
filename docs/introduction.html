@@ -79,16 +79,16 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="introduction">Introduction</h1>
 
-<p>This documention covers common technical questions from developers creating .NET OSS libraries.</p>
+<p>This documention provides recommendations for developers to create strong and stable .NET OSS libraries. The focus of the documentation is not on <em>how</em> to do something - creating a NuGet package for example - but <em>what</em> you should do when creating a NuGet package and <em>why</em>. More information is provided after each section via links to detailed documentation and references.</p>
 <h2 id="recommendations">Recommendations</h2>
 <p>The Book of .NET OSS provides a brief description of each topic to introduce why it is important, and then gives a list of recommendations for your OSS project using <strong>Do</strong>, <strong>Consider</strong>, <strong>Avoid</strong> and <strong>Do not</strong>. The wording of each recommendation indicates how strongly it should be followed. For example a <strong>Do</strong> recommendation is one that should almost always be followed:</p>
-<p><strong>✓ DO</strong> choose an <a href="https://choosealicense.com/">OSS license</a>.</p>
+<p><strong>✔️ DO</strong> choose an <a href="https://choosealicense.com/">OSS license</a>.</p>
 <p>On the other hand <strong>Consider</strong> recommendations should generally be followed, but there are legitimate exceptions to the rule and you should not feel bad about not following the guidance:</p>
-<p><strong>✓ CONSIDER</strong> using SemVer to version your NuGet package</p>
+<p><strong>✔️️ CONSIDER</strong> using <a href="https://semver.org/">SemVer 2.0.0</a> to version your NuGet package.</p>
 <p><strong>Do not</strong> indicates something you should almost never do:</p>
-<p><strong>✗ DO NOT</strong> publish strong-named and non-strong-named versions of your project, e.g. <code>Contoso.Api</code> and <code>Contoso.Api.StrongNamed</code>.</p>
+<p><strong>❌ DO NOT</strong> publish strong-named and non-strong-named versions of your project, e.g. <code>Contoso.Api</code> and <code>Contoso.Api.StrongNamed</code>.</p>
 <p>And finally less strong, <strong>avoid</strong> recommendations are something this is not a good idea, but breaking the rule sometimes makes sense:</p>
-<p><strong>✗ AVOID</strong> NuGet package references that demand an exact version.</p>
+<p><strong>❌ AVOID</strong> NuGet package references that demand an exact version.</p>
 </article>
           </div>
           

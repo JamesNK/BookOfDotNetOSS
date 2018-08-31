@@ -90,8 +90,8 @@
 <p>Because a high-level library is likely to be directly referenced in the end user application, in the event of breaking changes the developer can choose to not update to the latest version, or can modify their application to work with the breaking change.</p>
 </li>
 </ul>
-<p><strong>✓ DO</strong> what you can to minimise breaking changes when developing a low-level .NET library.</p>
-<p><strong>✓ CONSIDER</strong> publishing a major rewrite of a library as a new NuGet package.</p>
+<p><strong>✔️ DO</strong> what you can to minimise breaking changes when developing a low-level .NET library.</p>
+<p><strong>✔️ CONSIDER</strong> publishing a major rewrite of a library as a new NuGet package.</p>
 <h2 id="types-of-breaking-changes">Types of Breaking Changes</h2>
 <p>Breaking changes fall into different categories and are not equally impactful.</p>
 <h3 id="source-breaking-change">Source Breaking Change</h3>
@@ -104,17 +104,17 @@
 <p>Because a source breaking change is only harmful when the developer recompiles their application, it is the least disruptive. Developers can fix their own broken source code easily.</p>
 <h3 id="behavior-breaking-change">Behavior Breaking Change</h3>
 <p>Behavior changes are the most common breaking change: almost any change in behavior could break someone. Even a bug fix can qualify if users relied on the previously broken behavior.</p>
-<p><strong>✓ CONSIDER</strong> leaving new features off by default if they affect existing users, and let developers opt-in to the feature with a setting.</p>
+<p><strong>✔️ CONSIDER</strong> leaving new features off by default if they affect existing users, and let developers opt-in to the feature with a setting.</p>
 <h3 id="binary-breaking-change">Binary Breaking Change</h3>
 <p>A binary breaking change happens when you change the public API of a library so that assemblies compiled against older versions are no longer able to call it. For example, changing a method's signature by adding a new parameter will cause already compiled assemblies that called it to throw a <code>MissingMethodException</code>.</p>
 <p>A binary breaking change can also break an <strong>entire assembly</strong>. Renaming an assembly in <code>AssemblyNameAttribute</code>, adding, removing or changing an assembly's strong naming key changes the assembly identity, and all compiled code that uses it will fail.</p>
-<p><strong>✗ DO NOT</strong> change an assembly name.</p>
-<p><strong>✗ DO NOT</strong> add, remove or change the strong naming key.</p>
-<p><strong>✓ CONSIDER</strong> using abstract base classes instead of interfaces.</p>
+<p><strong>❌ DO NOT</strong> change an assembly name.</p>
+<p><strong>❌ DO NOT</strong> add, remove or change the strong naming key.</p>
+<p><strong>✔️ CONSIDER</strong> using abstract base classes instead of interfaces.</p>
 <blockquote>
 <p>Adding anything to an interface will cause existing types that implement it to fail. An abstract base class allows you to add a default virtual implementation.</p>
 </blockquote>
-<p><strong>✓ CONSIDER</strong> placing the <code>ObsoleteAttribute</code> on types and members that you intend to remove with instructions for fixing their code to no longer use the obsolete API.</p>
+<p><strong>✔️ CONSIDER</strong> placing the <code>ObsoleteAttribute</code> on types and members that you intend to remove with instructions for fixing their code to no longer use the obsolete API.</p>
 <blockquote>
 <p>Code that calls types and methods with the <code>ObsoleteAttribute</code> will generate a build warning with the message supplied to the attribute. The warnings give people who use the obsolete API surface time to migrate so that when the obsolete API is removed, most are no longer be using it.</p>
 </blockquote>

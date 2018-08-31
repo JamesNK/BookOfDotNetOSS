@@ -91,7 +91,7 @@
 <li><strong>The package assembly is strong named</strong>, the assembly version changed, and the app is running on the .NET Framework. Assembly binding redirects are required.</li>
 </ol>
 <p>It is impossible to know what packages will be used alongside your own, but you can reduce the likelihood of a diamond dependency causing your library to break by minimizing the number of packages you depend on.</p>
-<p><strong>✓ DO</strong> review your .NET library for unnecessary dependencies.</p>
+<p><strong>✔️ DO</strong> review your .NET library for unnecessary dependencies.</p>
 <h2 id="nuget-dependency-version-ranges">NuGet dependency version ranges</h2>
 <p>A package reference specifies the range of valid packages it allows. Typically, the package reference version in the <code>csproj</code> file is the minimum version and there is no maximum.</p>
 <pre><code class="lang-xml">&lt;!-- Accepts any version 1.0 and above. --&gt;
@@ -107,9 +107,9 @@
 </code></pre>
 <p>Upper version limits will cause NuGet to fail if there is a conflict, e.g. one library accepts exactly 1.0 while another library requires 2.0 or above. While breaking changes may have been introduced in version 2.0, a strict or upper limit version dependency guarantees an error.</p>
 <p><img src="../images/diamond-dependency-conflict.png" alt="Diamond dependency conflict" title="Diamond dependency conflict"></p>
-<p><strong>✗ DO NOT</strong> have NuGet package references with no minimum version.</p>
-<p><strong>✗ AVOID</strong> NuGet package references that demand an exact version.</p>
-<p><strong>✗ AVOID</strong> NuGet package references with a version upper limit.</p>
+<p><strong>❌ DO NOT</strong> have NuGet package references with no minimum version.</p>
+<p><strong>❌ AVOID</strong> NuGet package references that demand an exact version.</p>
+<p><strong>❌ AVOID</strong> NuGet package references with a version upper limit.</p>
 <p><strong>More Information</strong></p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/consume-packages/dependency-resolution">How NuGet resolves package dependencies</a></li>
@@ -122,10 +122,10 @@
 <pre><code class="lang-xml">&lt;PackageReference Include=&quot;Microsoft.Extensions.Buffers.Testing.Sources&quot; PrivateAssets=&quot;All&quot; Version=&quot;1.0&quot; /&gt;
 </code></pre>
 <p><img src="../images/shared-source-project.png" alt="Shared source project" title="Shared source project"></p>
-<p><strong>✓ CONSIDER</strong> referencing shared source packages for small, internal pieces of functionality.</p>
-<p><strong>✓ CONSIDER</strong> making your package a shared source package if it provides small, internal pieces of functionality.</p>
-<p><strong>✓ DO</strong> reference shared source packages with <code>PrivateAssets=&quot;All&quot;</code>.</p>
-<p><strong>✗ AVOID</strong> shared-source package types in your public API.</p>
+<p><strong>✔️ CONSIDER</strong> referencing shared source packages for small, internal pieces of functionality.</p>
+<p><strong>✔️ CONSIDER</strong> making your package a shared source package if it provides small, internal pieces of functionality.</p>
+<p><strong>✔️ DO</strong> reference shared source packages with <code>PrivateAssets=&quot;All&quot;</code>.</p>
+<p><strong>❌ AVOID</strong> shared-source package types in your public API.</p>
 <blockquote>
 <p>Shared-source types are compiled into the referencing assembly and can't be exchanged across assembly boundaries, e.g. a shared-source <code>IRepository</code> type in one project is a separate type from the same shared-source <code>IRepository</code> in another project.</p>
 </blockquote>

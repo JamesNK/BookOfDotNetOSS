@@ -107,8 +107,8 @@
     &lt;/files&gt;
 &lt;/package&gt;
 </code></pre>
-<p><strong>✓ CONSIDER</strong> using a modern .NET Class Library to create a NuGet package if possible.</p>
-<p><strong>✓ CONSIDER</strong> setting up SourceLink to add source control metadata to your assemblies and NuGet package.</p>
+<p><strong>✔️ CONSIDER</strong> using a modern .NET Class Library to create a NuGet package if possible.</p>
+<p><strong>✔️ CONSIDER</strong> setting up SourceLink to add source control metadata to your assemblies and NuGet package.</p>
 <p><strong>More Information</strong></p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/creating-a-package">Creating NuGet packages</a></li>
@@ -174,13 +174,13 @@
 </tr>
 </tbody>
 </table>
-<p><strong>✓ CONSIDER</strong> choosing a NuGet package name with a prefix that meets NuGet's prefix reservation <a href="https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation">criteria</a>.</p>
-<p><strong>✓ CONSIDER</strong> using the <code>LICENSE</code> file in source control as the <code>LicenseUrl</code>, e.g. <a href="https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md">https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md</a></p>
-<p><strong>✓ DO</strong> use a HTTPS href to your package icon.</p>
+<p><strong>✔️ CONSIDER</strong> choosing a NuGet package name with a prefix that meets NuGet's prefix reservation <a href="https://docs.microsoft.com/en-us/nuget/reference/id-prefix-reservation">criteria</a>.</p>
+<p><strong>✔️ CONSIDER</strong> using the <code>LICENSE</code> file in source control as the <code>LicenseUrl</code>, e.g. <a href="https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md">https://github.com/JamesNK/Newtonsoft.Json/blob/master/LICENSE.md</a></p>
+<p><strong>✔️ DO</strong> use a HTTPS href to your package icon.</p>
 <blockquote>
 <p>Sites like nuget.org run with HTTPS enabled and displaying a non-HTTPS image will create a mixed content warning.</p>
 </blockquote>
-<p><strong>✓ DO</strong> use a package icon image that is 64x64 and has a transparent background for best viewing results.</p>
+<p><strong>✔️ DO</strong> use a package icon image that is 64x64 and has a transparent background for best viewing results.</p>
 <p><strong>More Information</strong></p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/reference/nuspec">.nuspec reference</a></li>
@@ -194,8 +194,8 @@
 <p>Stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.</p>
 </div>
 <p><img src="../images/nuget-prerelease-package.png" alt="Nuget pre-release package dependency" title="Nuget pre-release package dependency"></p>
-<p><strong>✓ DO</strong> publish a pre-release package when testing, previewing, or experimenting.</p>
-<p><strong>✓ DO</strong> publish a stable package when it is ready so other stable packages can reference it.</p>
+<p><strong>✔️ DO</strong> publish a pre-release package when testing, previewing, or experimenting.</p>
+<p><strong>✔️ DO</strong> publish a stable package when it is ready so other stable packages can reference it.</p>
 <p><strong>More Information</strong></p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/prerelease-packages">Building pre-release packages</a></li>
@@ -203,8 +203,8 @@
 <h2 id="symbol-packages">Symbol Packages</h2>
 <p>NuGet supports generating a separate symbol package containing debug PDB files along side the main package containing .NET assemblies. The idea of symbol packages is they are hosted on a symbol server and are only downloaded by a tool like Visual Studio on demand.</p>
 <p>Currently the main public host for symbols - <a href="http://www.symbolsource.org/">SymbolSource</a> - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not generally useful.</p>
-<p><strong>✓ CONSIDER</strong> embedding PDBs in the main NuGet package.</p>
-<p><strong>✗ AVOID</strong> creating a symbols package containing PDBs.</p>
+<p><strong>✔️ CONSIDER</strong> embedding PDBs in the main NuGet package.</p>
+<p><strong>❌ AVOID</strong> creating a symbols package containing PDBs.</p>
 <p><strong>More Information</strong></p>
 <ul>
 <li><a href="https://docs.microsoft.com/en-us/nuget/create-packages/symbol-packages">Creating symbol packages</a></li>

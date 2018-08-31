@@ -90,9 +90,9 @@
 </code></pre>
 <p>The NuGet package identifier, e.g. Newtonsoft.Json, combined with the NuGet package version, e.g. 11.0.2, is used to uniquely identify a package in NuGet. A package with a suffix is a pre-release package and has special behavior that makes it ideal for testing. Read about pre-release NuGet packages <a href="nuget.html#pre-release-packages">here</a>.</p>
 <p>Because the NuGet package version is the most visible version to developers, it is a good idea to update it using <a href="https://semver.org/">Semantic Versioning (SemVer)</a>. SemVer indicates the significance of changes between release (e.g. <code>1.0</code> to <code>2.0</code> indicates that there are breaking changes) and helps developers make an informed decision when choosing what version to use.</p>
-<p><strong>✓ CONSIDER</strong> using <a href="https://semver.org/">SemVer 2.0.0</a> to version your NuGet package.</p>
-<p><strong>✓ DO</strong> use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.</p>
-<p><strong>✓ DO</strong> include a pre-release suffix when releasing a test package.</p>
+<p><strong>✔️ CONSIDER</strong> using <a href="https://semver.org/">SemVer 2.0.0</a> to version your NuGet package.</p>
+<p><strong>✔️ DO</strong> use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.</p>
+<p><strong>✔️ DO</strong> include a pre-release suffix when releasing a test package.</p>
 <blockquote>
 <p>Users must opt-in to getting pre-release packages so they will understand that the package is not complete.</p>
 </blockquote>
@@ -107,11 +107,11 @@
 </code></pre>
 <p>By default, the Windows .NET Framework CLR demands an exact match when loading a strong named assembly, e.g. <code>Libary1, Version=1.0.0.0</code> was compiled with a reference to <code>Newtonsoft.Json, Version=11.0.0.0</code> and will only load that exact version 11.0.0.0. To load a different version at runtime, a binding redirect must be added to the .NET application's config file.</p>
 <p>Strong naming combined with assembly version is a controversial subject. While strong naming a library has a number of benefits, it often results in runtime exceptions that an assembly can't be found and <a href="https://docs.microsoft.com/en-us/dotnet/framework/configure-apps/redirect-assembly-versions">requires binding redirects</a> in <code>app.config</code>/<code>web.config</code> to be fixed. .NET Core assembly loading has been relaxed, and the .NET Core CLR will automatically load assemblies at runtime with a higher version.</p>
-<p><strong>✓ CONSIDER</strong> only including a major version in the AssemblyVersion.</p>
+<p><strong>✔️ CONSIDER</strong> only including a major version in the AssemblyVersion.</p>
 <blockquote>
 <p>e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of <code>1.0.0.0</code>, while Library 2.0 has AssemblyVersion of <code>2.0.0.0</code>. When the assembly version changes less often, it reduces binding redirects.</p>
 </blockquote>
-<p><strong>✗ DO NOT</strong> have a fixed AssemblyVersion.</p>
+<p><strong>❌ DO NOT</strong> have a fixed AssemblyVersion.</p>
 <blockquote>
 <p>While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
 </blockquote>
@@ -125,7 +125,7 @@
 <pre><code class="lang-xml">&lt;FileVersion&gt;11.0.2.21924&lt;/FileVersion&gt;
 </code></pre>
 <p><img src="../images/win-properties.png" alt="Windows Explorer" title="Windows Explorer"></p>
-<p><strong>✓ CONSIDER</strong> including a continuous integration build number as AssemblyFileVersion revision.</p>
+<p><strong>✔️ CONSIDER</strong> including a continuous integration build number as AssemblyFileVersion revision.</p>
 <blockquote>
 <p>e.g. you are building version 1.0.0 of your project, and the continuous integration build number is 99 so your AssemblyFileVersion is 1.0.0.99.</p>
 </blockquote>
@@ -137,7 +137,7 @@
 <h5>Note</h5>
 <p>An innocuous build warning is raised if this version does not follow the format <code>Major.Minor.Build.Revision</code>. The warning can be safely ignored.</p>
 </div>
-<p><strong>✗ AVOID</strong> setting the assembly informational version yourself.</p>
+<p><strong>❌ AVOID</strong> setting the assembly informational version yourself.</p>
 <blockquote>
 <p>Allow SourceLink to automatically generate the version containing NuGet and source control metadata.</p>
 </blockquote>

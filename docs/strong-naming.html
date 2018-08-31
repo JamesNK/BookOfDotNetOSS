@@ -104,8 +104,8 @@
 </ol>
 <h2 id="what-should-i-do">What should I do?</h2>
 <p>Strong-naming an assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.</p>
-<p><strong>✓ CONSIDER</strong> strong-naming your project assemblies.</p>
-<p><strong>✓ CONSIDER</strong> checking in the key used to strong-name into your source control system.</p>
+<p><strong>✔️ CONSIDER</strong> strong-naming your project assemblies.</p>
+<p><strong>✔️ CONSIDER</strong> checking in the key used to strong-name into your source control system.</p>
 <blockquote>
 <p>A publicly available key lets developers modify and recompile your library source code with the same key.</p>
 </blockquote>
@@ -114,8 +114,8 @@
 <p>While keeping the key private means strong-naming can be used to verify the identity of the library, publishing the NuGet package to NuGet.org offers a similar form of identity.</p>
 <p>When a cryptographic identity is desired, <a href="https://docs.microsoft.com/en-us/windows-hardware/drivers/install/authenticode">Authenticode</a> and <a href="https://docs.microsoft.com/en-us/nuget/create-packages/sign-a-package">NuGet Package Signing</a> provide more functionality.</p>
 </div>
-<p><strong>✓ CONSIDER</strong> incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.</p>
-<p><strong>✗ DO NOT</strong> publish strong-named and non-strong-named versions of your project, e.g. <code>Contoso.Api</code> and <code>Contoso.Api.StrongNamed</code>.</p>
+<p><strong>✔️ CONSIDER</strong> incrementing the assembly version on only major version changes to help users reduce binding redirects, and how often they are updated.</p>
+<p><strong>❌ DO NOT</strong> publish strong-named and non-strong-named versions of your project, e.g. <code>Contoso.Api</code> and <code>Contoso.Api.StrongNamed</code>.</p>
 <blockquote>
 <p>If an application ends up depending on both packages the developer will encounter type name conflicts.</p>
 </blockquote>
