@@ -9,7 +9,8 @@ documentType: index
         <h1 id="the-book-of-net-oss">The Book of .NET OSS</h1>
         <p>Documentation for building wonderful .NET open source software.</p>
         <hr />
-        <p>The goal of this website is to bring together best practices for .NET OSS into one central place, and provide a set of common recommendations for creating .NET OSS libraries. We want to help the OSS project owners and maintainers produce high quality, stable libraries for all .NET developers.</p>
+        <p>The goal of this website is to bring together best practices for .NET OSS, and provide a set of common recommendations for creating .NET OSS libraries.</p>
+        <p>We want to help the OSS project owners and maintainers produce high quality, stable libraries for all .NET developers.</p>
         <a href="docs/get-started.md" class="btn btn-primary"><strong>Get started</strong></a>
         <a href="docs/introduction.md" class="btn btn-primary"><strong>View documentation</strong></a>
         <h2 id="how-can-i-help">How Can I Help?</h2>

@@ -36,6 +36,8 @@
     "dest": "_site",
     "globalMetadata": {
       "_appTitle": "The Book of .NET OSS",
+      "_appFaviconPath": "images/favicon.ico",
+      "_appLogoPath": "images/logo.svg",
       "_enableSearch": true
     },
     "fileMetadataFiles": [],

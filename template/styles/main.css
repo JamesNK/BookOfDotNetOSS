@@ -1,3 +1,11 @@
 blockquote {
     font-size: inherit;
 }
+
+.article {
+    margin-top: 100px;
+}
+
+.navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
+    color: #ccc;
+}

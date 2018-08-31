@@ -32,9 +32,9 @@ The benefits of strong naming are:
 
 ## What should I do?
 
-Strong-naming an assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.
+Applications don't need to strong name most of the time, but strong naming is recommended for .NET OSS libraries. Strong-naming a library's assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.
 
-**✔️ CONSIDER** strong-naming your project assemblies.
+**✔️ CONSIDER** strong-naming your library's assemblies.
 
 **✔️ CONSIDER** checking in the key used to strong-name into your source control system.
 

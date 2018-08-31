@@ -21,22 +21,7 @@ There are two main ways to create a NuGet package. The newer and recommended way
 </Project>
 ```
 
-The older way of creating a NuGet package is with a nuspec file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
-    <metadata>
-        <id>Contoso.Api</id>
-        <version>1.1.0</version>
-        <description></description>
-        <authors>John Doe</authors>
-    </metadata>
-    <files>
-        <file src="bin\Release\netstandard2.0\*.dll" target="netstandard2.0" />
-    </files>
-</package>
-```
+The older way of creating a NuGet package is with a `*.nuspec` file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
 
 **✔️ CONSIDER** using a modern .NET Class Library to create a NuGet package if possible.
 
@@ -49,11 +34,11 @@ The older way of creating a NuGet package is with a nuspec file and the `nuget.e
 
 ## Package Dependences
 
-NuGet package dependencies are covered [here](./dependencies.md).
+NuGet package dependencies are covered in detail [here](./dependencies.md).
 
 ## Important NuGet Package Metadata
 
-A NuGet package has a lot of associated metadata. This is the metadata that every project should provide:
+A NuGet package has a lot of associated metadata. This is the metadata that every public OSS project should provide:
 
 | MSBuild Property name            | Nuspec name              | Description  |
 | -------------------------------- | ------------------------ | ------------ |
@@ -90,7 +75,7 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 ```
 
 > [!NOTE]
-> Stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.
+> A stable package cannot depend on a pre-release package. You must either make your own package pre-release, or depend on an older stable version.
 
 ![Nuget pre-release package dependency](../images/nuget-prerelease-package.png "Nuget pre-release package dependency")
 
