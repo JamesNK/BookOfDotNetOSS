@@ -24,7 +24,7 @@ blockquote {
 .navbar-inverse .navbar-brand{color:#fff}
 
 .navbar-inverse .navbar-nav>li {
-    margin-right: 8px;
+    margin-left: 8px;
 }
 
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
