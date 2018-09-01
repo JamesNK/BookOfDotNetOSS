@@ -6,6 +6,36 @@ blockquote {
     margin-top: 100px;
 }
 
+.btn-primary {
+    background-color: #763696;
+    border-radius: 0;
+    border: 0;
+}
+
+.btn-primary:active,.btn-primary:focus,.btn-primary:hover {
+    background-color:#662F82;
+}
+
+.navbar-inverse {
+    background-color: #662F82;
+    border: 0;
+}
+
+.navbar-inverse .navbar-brand{color:#fff}
+
+.navbar-inverse .navbar-nav>li {
+    margin-right: 8px;
+}
+
 .navbar-inverse .navbar-nav>li>a, .navbar-inverse .navbar-text {
-    color: #ccc;
+    color: #fff;
+}
+
+.navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:focus, .navbar-inverse .navbar-nav>.active>a:hover {
+    color: #fff;
+    background-color: #926DA5;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    background-color: #926DA5;
 }

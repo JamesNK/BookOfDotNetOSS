@@ -38,7 +38,8 @@
       "_appTitle": "The Book of .NET OSS",
       "_appFaviconPath": "images/favicon.ico",
       "_appLogoPath": "images/logo.svg",
-      "_enableSearch": true
+      "_enableSearch": true,
+      "_appFooter": " "
     },
     "fileMetadataFiles": [],
     "template": [
