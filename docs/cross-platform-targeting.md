@@ -39,7 +39,7 @@ The .NET Standard is a specification of .NET APIs that are available on all .NET
 
 Targeting .NET Standard, and successfully compiling your project, does not guarantee the library will run successfully on all platforms:
 
-1. Platform specific APIs will fail on other platforms, e.g. `Microsoft.Win32.Registry` will succeed on Windows and throw `PlatformNotSupportedException` when used on any other OS.
+1. Platform specific APIs will fail on other platforms, e.g. `Microsoft.Win32.Registry` will succeed on Windows and throw `PlatformNotSupportedException` when used on any other OS. (The .NET team [offers a Roslyn Analyzer](https://docs.microsoft.com/en-us/dotnet/standard/analyzers/api-analyzer) to help you discover possible issues.)
 2. APIs can behave differently, e.g. reflection APIs have different performance characteristics when an application uses ahead-of-time compilation on iOS or UWP.
 
 **✔️ CONSIDER** including a `netstandard2.0` target.
