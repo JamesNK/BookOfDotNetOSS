@@ -18,7 +18,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/breaking-changes.html",
-          "hash": "4V5IhPwW+ZFrfLTSBDYkiQ=="
+          "hash": "1aXg/2CDFxjC9Vi7FhSTyw=="
         }
       },
       "is_incremental": false,
@@ -30,7 +30,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/cross-platform-targeting.html",
-          "hash": "JyP54St+2tgPIoYSFdpNBQ=="
+          "hash": "rYNeGxmka+A+e9yrgU96GQ=="
         }
       },
       "is_incremental": false,
@@ -42,7 +42,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/dependencies.html",
-          "hash": "5E5t8WN5/epZ6F6c5P4nFQ=="
+          "hash": "0PlMAwSeWzOdCeKvSujJOA=="
         }
       },
       "is_incremental": false,
@@ -54,7 +54,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/get-started.html",
-          "hash": "5kDY/WPF+vIe1Ngnh9kbQw=="
+          "hash": "6QK2rJzz3SE5J6EBikFZVQ=="
         }
       },
       "is_incremental": false,
@@ -66,7 +66,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/introduction.html",
-          "hash": "hTD9PdSySQe4RG4IYmxwvw=="
+          "hash": "y18J2lAFoNuwytwp79d7gQ=="
         }
       },
       "is_incremental": false,
@@ -78,7 +78,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/nuget-publishing.html",
-          "hash": "XEqVlDvXT+rtJ63DAgEl0w=="
+          "hash": "R+SjRwEDyZAzC7gmkX6DTg=="
         }
       },
       "is_incremental": false,
@@ -90,7 +90,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/nuget.html",
-          "hash": "Xh5yqADSwxq5g+xWNh8+7A=="
+          "hash": "1q4lwUaMQsGPF4Dnr6GQlA=="
         }
       },
       "is_incremental": false,
@@ -102,7 +102,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/sourcelink.html",
-          "hash": "JTUin/CJvdeImxRZRw5LWg=="
+          "hash": "NpoVr9MF4TFPDT/5n67pEw=="
         }
       },
       "is_incremental": false,
@@ -114,7 +114,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/strong-naming.html",
-          "hash": "8r1obSGp0TZj9yNyiGoR7A=="
+          "hash": "Zuiei6AnzZ4lq6ElkrUMXQ=="
         }
       },
       "is_incremental": false,
@@ -138,7 +138,7 @@
       "output": {
         ".html": {
           "relative_path": "docs/versioning.html",
-          "hash": "/yGoCsXY9Cf6GCRC9rwoOA=="
+          "hash": "/o4oqEHPplWinBfMWQvD2g=="
         }
       },
       "is_incremental": false,
@@ -359,7 +359,7 @@
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "XDUuB3ai5i18RUB3+pVrcw=="
+          "hash": "V2mNQ1cu1/ZAB/QoTqjzqg=="
         }
       },
       "is_incremental": false,
@@ -386,18 +386,18 @@
         "incrementalPhase": "build"
       },
       "processors": {
-        "TocDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": false,
           "incrementalPhase": "build"
         },
-        "ResourceDocumentProcessor": {
+        "TocDocumentProcessor": {
           "can_incremental": false,
-          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build"
         }
       }
