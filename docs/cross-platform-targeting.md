@@ -42,16 +42,18 @@ Targeting .NET Standard, and successfully compiling your project, does not guara
 1. Platform specific APIs will fail on other platforms, e.g. `Microsoft.Win32.Registry` will succeed on Windows and throw `PlatformNotSupportedException` when used on any other OS.
 2. APIs can behave differently, e.g. reflection APIs have different performance characteristics when an application uses ahead-of-time compilation on iOS or UWP.
 
+> [!TIP]
+> The .NET team [offers a Roslyn analyzer](https://docs.microsoft.com/en-us/dotnet/standard/analyzers/api-analyzer) to help you discover possible issues.
+
 **✔️ CONSIDER** including a `netstandard2.0` target.
 
 > .NET Standard 2.0 is supported by all modern platforms and is the recommended way to support multiple platforms with one target.
 
 **❌ AVOID** including a `netstandard1.x` target.
 
-> A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages. Modern .NET platforms, including .NET Framework 4.6.1, UWP and Xamarin, all support .NET Standard 2.0. You should only target .NET Standard 1.x if you specifically need to target an older platform.
-
-> [!TIP]
-> If you do have a 1.x target then also include a 2.0 target. Modern platforms will use the 2.0 target and older platforms will fall back to 1.x.
+> A .NET Standard 1.x target has a large package dependency graph and will download a lot of packages when building. Modern .NET platforms, including .NET Framework 4.6.1, UWP and Xamarin, all support .NET Standard 2.0. You should only target .NET Standard 1.x if you specifically need to target an older platform.
+>
+> If you do have a .NET Standard 1.x target then also include a 2.0 target. Modern platforms will use the 2.0 target and older platforms will fall back to 1.x.
 
 **❌ DO NOT** include a .NET Standard target if the library relies on a platform specific app model.
 
@@ -60,6 +62,7 @@ Targeting .NET Standard, and successfully compiling your project, does not guara
 **More Information**
 
 * [.NET Standard](https://docs.microsoft.com/en-us/dotnet/standard/net-standard)
+* [.NET API analyzer](https://docs.microsoft.com/en-us/dotnet/standard/analyzers/api-analyzer)
 
 ## Older Targets
 
@@ -67,6 +70,6 @@ Targeting .NET Standard, and successfully compiling your project, does not guara
 
 **❌ DO NOT** include a Portable Class Library (PCL) target, e.g. `portable-net45+win8+wpa81+wp8`.
 
-> .NET Standard is the modern way to support cross-platform .NET libraries and replace PCLs.
+> .NET Standard is the modern way to support cross-platform .NET libraries and replaces PCLs.
 
 **❌ DO NOT** include targets for .NET platforms that are no longer supported, e.g. `SL4`, `WP`.
