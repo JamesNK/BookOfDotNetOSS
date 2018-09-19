@@ -1,6 +1,6 @@
 # Introduction
 
-The Book of .NET OSS provides recommendations for developers to create strong and stable .NET OSS libraries. This documentation focuses on *what* and the *why* when building a .NET library, not *how*. After each topic there are links to more information, usually to detailed documentation and references.
+This set of guidelines provides recommendations for developers to create high quality .NET libraries. This documentation focuses on the *what* and the *why* when building a .NET library, not the *how*. After each topic there are links to more information, usually to detailed documentation and references.
 
 ## Recommendations
 
