@@ -100,7 +100,7 @@
 <p>Because the NuGet package version is the most visible version to developers, it is a good idea to update it using <a href="https://semver.org/">Semantic Versioning (SemVer)</a>. SemVer indicates the significance of changes between release (e.g. <code>1.0</code> to <code>2.0</code> indicates that there are breaking changes) and helps developers make an informed decision when choosing what version to use.</p>
 <p><strong>✔️ CONSIDER</strong> using <a href="https://semver.org/">SemVer 2.0.0</a> to version your NuGet package.</p>
 <p><strong>✔️ DO</strong> use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.</p>
-<p><strong>✔️ DO</strong> include a pre-release suffix when releasing a test package.</p>
+<p><strong>✔️ DO</strong> include a pre-release suffix when releasing a non-stable package.</p>
 <blockquote>
 <p>Users must opt-in to getting pre-release packages so they will understand that the package is not complete.</p>
 </blockquote>
@@ -119,9 +119,13 @@
 <blockquote>
 <p>e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of <code>1.0.0.0</code>, while Library 2.0 has AssemblyVersion of <code>2.0.0.0</code>. When the assembly version changes less often, it reduces binding redirects.</p>
 </blockquote>
+<p><strong>✔️ CONSIDER</strong> keeping the major verson number of the AssemblyVersion and the NuGet package version in sync.</p>
+<blockquote>
+<p>The AssemblyVerson is included in some informational messages displayed to the user, e.g. the assembly name and assembly qualified type names in exception messages. Maintaining a relationship between the versions provides more information to developers about which version they are using.</p>
+</blockquote>
 <p><strong>❌ DO NOT</strong> have a fixed AssemblyVersion.</p>
 <blockquote>
-<p>While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
+<p>While an unchanging AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.</p>
 </blockquote>
 <p><strong>More information</strong></p>
 <ul>
