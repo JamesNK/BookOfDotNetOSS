@@ -26,7 +26,7 @@ Because the NuGet package version is the most visible version to developers, it 
 
 **✔️ DO** use the NuGet package version number in public communication and documentation as it is the version number that users will commonly see.
 
-**✔️ DO** include a pre-release suffix when releasing a test package.
+**✔️ DO** include a pre-release suffix when releasing a non-stable package.
 
 > Users must opt-in to getting pre-release packages so they will understand that the package is not complete.
 

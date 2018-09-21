@@ -2,13 +2,13 @@
   href: introduction.md
 - name: Cross-platform targeting
   href: cross-platform-targeting.md
-- name: Dependencies
-  href: dependencies.md
 - name: Strong naming
   href: strong-naming.md
 - name: NuGet
   href: nuget.md
   items:
+    - name: Dependencies
+      href: dependencies.md
     - name: SourceLink
       href: sourcelink.md
     - name: Publishing

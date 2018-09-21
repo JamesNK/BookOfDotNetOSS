@@ -15,7 +15,7 @@ NuGet packages are published and consumed from package repositories. While NuGet
 
 **✔️ CONSIDER** publishing pre-release packages to a MyGet feed from a continuous integration build.
 
-**✔️ CONSIDER** testing packages in your development environment using a local feed.
+**✔️ CONSIDER** testing packages in your development environment using a local feed or MyGet before publishing to NuGet.org.
 
 **More Information**
 
