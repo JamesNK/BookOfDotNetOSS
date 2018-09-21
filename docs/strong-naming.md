@@ -26,9 +26,11 @@ The benefits of strong naming are:
 3. The assembly can be stored in the Global Assembly Cache (GAC)
 4. The assembly can be used by plug-in architectures that require strong naming
 
+One important aspect of strong naming is it is viral: a strong named assembly can only reference other strong named assemblies. If your library is not strong named then developers who are building an application or library that needs strong naming are excluded from using it.
+
 ## What should I do?
 
-Applications don't need to strong name most of the time, but strong naming is recommended for .NET OSS libraries. Strong-naming a library's assembly ensures that most people can use it, and .NET Core removes the main problem with strong-naming.
+Applications don't need to strong name most of the time, but strong naming is recommended for .NET OSS libraries. Strong-naming a library's assembly ensures that the most people can use it, and .NET Core removes the main problem with strong-naming.
 
 **✔️ CONSIDER** strong-naming your library's assemblies.
 

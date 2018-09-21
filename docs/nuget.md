@@ -8,7 +8,7 @@ NuGet is a package manager for the .NET eco-system and is the primary way that .
 
 A NuGet package (`*.nupkg`) is basically a zip file containing .NET assemblies and associated metadata.
 
-There are two main ways to create a NuGet package. The newer and recommended way is to create a package from a modern .NET Class Library (a modern .NET Class Library `csproj`/`vbproj` file starts with `<Project Sdk="Microsoft.NET.Sdk">`). Assemblies and targets are automatically added to the package and remaining metadata, e.g. package name and version number, is added to the MSBuild file. Compiling with the `pack` command outputs a `*.nupkg` file instead of assemblies.
+There are two main ways to create a NuGet package. The newer and recommended way is to create a package from a SDK-style project (project file the content starts with `<Project Sdk="Microsoft.NET.Sdk">`). Assemblies and targets are automatically added to the package and remaining metadata, e.g. package name and version number, is added to the MSBuild file. Compiling with the `pack` command outputs a `*.nupkg` file instead of assemblies.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -21,9 +21,9 @@ There are two main ways to create a NuGet package. The newer and recommended way
 </Project>
 ```
 
-The older way of creating a NuGet package is with a `*.nuspec` file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages with projects that do no yet support modern .NET Class Libraries.
+The older way of creating a NuGet package is with a `*.nuspec` file and the `nuget.exe` command line tool. A nuspec file gives you a lot of control but you must carefully specify what assemblies and targets to include in the final NuGet package, and it is easy to make a mistake or for someone to forget to update the nuspec when making changes. The advantage of a nuspec is you can use it create NuGet packages for frameworks that do not yet support an SDK-style project file.
 
-**✔️ CONSIDER** using a modern .NET Class Library to create a NuGet package if possible.
+**✔️ CONSIDER** using a SDK-style project file to create the NuGet package.
 
 **✔️ CONSIDER** setting up SourceLink to add source control metadata to your assemblies and NuGet package.
 
@@ -91,7 +91,7 @@ NuGet packages with a version suffix are considered pre-release. By default the 
 
 NuGet supports generating a separate symbol package containing debug PDB files along side the main package containing .NET assemblies. The idea of symbol packages is they are hosted on a symbol server and are only downloaded by a tool like Visual Studio on demand.
 
-Currently the main public host for symbols - [SymbolSource](http://www.symbolsource.org/) - does not support the portable PDBs created by modern .NET Class Libraries and symbol packages are not generally useful.
+Currently the main public host for symbols - [SymbolSource](http://www.symbolsource.org/) - does not support the portable PDBs created by SDK-style projects and symbol packages are not generally useful.
 
 **✔️ CONSIDER** embedding PDBs in the main NuGet package.
 

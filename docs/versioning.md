@@ -51,9 +51,13 @@ Strong naming combined with assembly version is a controversial subject. While s
 
 > e.g. Library 1.0 and Library 1.0.1 both have an AssemblyVersion of `1.0.0.0`, while Library 2.0 has AssemblyVersion of `2.0.0.0`. When the assembly version changes less often, it reduces binding redirects.
 
+**✔️ CONSIDER** keeping the major verson number of the AssemblyVersion and the NuGet package version in sync.
+
+> The AssemblyVerson is included in some informational messages displayed to the user, e.g. the assembly name and assembly qualified type names in exception messages. Maintaining a relationship between the versions provides more information to developers about which version they are using.
+
 **❌ DO NOT** have a fixed AssemblyVersion.
 
-> While a single AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.
+> While an unchanging AssemblyVersion avoids the need for binding redirects, it means that only a single version of the assembly can be GACed. Also, the applications that reference the assembly in the GAC will break if another application updates the GACed assembly with breaking changes.
 
 **More information**
 
