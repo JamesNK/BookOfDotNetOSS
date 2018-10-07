@@ -2,7 +2,9 @@
 
 Answers to common technical questions from .NET open source project owners and maintainers.
 
-**[The Book of .NET OSS website](https://jamesnk.github.io/BookOfDotNetOSS/)**
+~**[The Book of .NET OSS website](https://jamesnk.github.io/BookOfDotNetOSS/)**~
+
+**Important:** This repository is being replaced by a PR to docs.microsoft.com - [Open-source Library Guidance PR](https://github.com/Microsoft/dotnet-blog/pull/305)
 
 ## How Can I Help?
 
